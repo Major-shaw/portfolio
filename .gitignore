@@ -1,0 +1,16 @@
+# Old versions / drafts
+portfolio.html
+portfolio_glow_v2.html
+portfolio_glow_v3.html
+portfolio_glow_v4.html
+portfolio_gradient_v1.html
+template.html
+template_context.md
+template_editing_guide.md
+
+# PDFs
+*.pdf
+
+# macOS
+.DS_Store
+Thumbs.db
