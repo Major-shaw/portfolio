@@ -2806,62 +2806,201 @@ main {
 
 /* ===== SECTION: Brainstorming ===== */
 .brainstorming {
-  padding: var(--space-section) 0;
+  padding: var(--space-section-lg) 0;
   border-top: 1px solid var(--color-border-light);
 }
 
-.ideas-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-sm);
-  margin-top: var(--space-lg);
+/* Idea Categories */
+.idea-category {
+  margin-top: var(--space-xl);
 }
 
+.idea-category__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+  margin-bottom: 0;
+}
+
+.idea-category__header--engagement {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-bottom: 2px solid #4caf50;
+}
+
+.idea-category__header--rewards {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-bottom: 2px solid #2196f3;
+}
+
+.idea-category__header--variety {
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  border-bottom: 2px solid #ff9800;
+}
+
+.idea-category__header--social {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+  border-bottom: 2px solid #9c27b0;
+}
+
+.idea-category__icon {
+  font-size: 1.5rem;
+}
+
+.idea-category__title {
+  font-size: 1.1rem;
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.idea-category__subtitle {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-left: auto;
+}
+
+.idea-category__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: #f8f9fa;
+  border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+  border: 1px solid var(--color-border-light);
+  border-top: none;
+}
+
+/* Idea Cards - Enhanced */
 .idea-card {
-  background: var(--color-bg-card);
-  border-radius: var(--border-radius-lg);
+  background: #ffffff;
+  border-radius: var(--border-radius-md);
   padding: var(--space-md);
   border: 1px solid var(--color-border-light);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
 }
 
 .idea-card:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-color: var(--color-border);
+}
+
+.idea-card__num {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  font-size: 0.7rem;
+  font-weight: var(--fw-bold);
+  color: var(--color-text-muted);
+  background: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: 100px;
 }
 
 .idea-card--selected {
   border: 2px solid var(--color-accent-primary);
-  background: linear-gradient(135deg, var(--color-success-light) 0%, #fff 100%);
+  background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+  box-shadow: 0 4px 16px rgba(1, 55, 97, 0.15);
+}
+
+.idea-card--selected .idea-card__num {
+  background: var(--color-accent-primary);
+  color: #ffffff;
 }
 
 .idea-card__tag {
   position: absolute;
   top: var(--space-sm);
-  right: var(--space-sm);
-  font-size: 0.625rem;
+  left: var(--space-sm);
+  font-size: 0.6rem;
   font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: #fff;
-  background: var(--color-accent-primary);
-  padding: 2px 8px;
+  background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+  padding: 3px 10px;
   border-radius: 100px;
 }
 
 .idea-card__title {
-  font-size: var(--fs-body);
+  font-size: 0.95rem;
   font-weight: var(--fw-semibold);
   color: var(--color-text-primary);
-  margin-bottom: var(--space-xs);
+  margin-top: var(--space-xs);
+  padding-right: 40px;
+}
+
+.idea-card--selected .idea-card__title {
+  padding-left: 70px;
 }
 
 .idea-card__desc {
-  font-size: var(--fs-small);
+  font-size: 0.85rem;
   color: var(--color-text-body);
   line-height: 1.5;
+}
+
+/* Matrix Intro */
+.matrix-intro {
+  text-align: center;
+  margin: var(--space-xxl) 0 var(--space-lg);
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: var(--border-radius-md);
+  border: 1px dashed var(--color-border);
+}
+
+.matrix-intro p {
+  font-size: 1.1rem;
+  color: var(--color-text-body);
+  margin: 0;
+}
+
+.matrix-intro strong {
+  color: var(--color-text-primary);
+}
+
+/* Responsive: Idea Categories */
+@media (max-width: 768px) {
+  .idea-category__header {
+    flex-wrap: wrap;
+    padding: var(--space-sm) var(--space-md);
+  }
+  
+  .idea-category__subtitle {
+    width: 100%;
+    margin-left: 0;
+    margin-top: var(--space-xs);
+  }
+  
+  .idea-category__cards {
+    grid-template-columns: 1fr;
+    padding: var(--space-sm);
+  }
+  
+  .idea-card__title {
+    font-size: 0.9rem;
+  }
+  
+  .idea-card--selected .idea-card__title {
+    padding-left: 0;
+    padding-top: var(--space-md);
+  }
+  
+  .matrix-intro {
+    margin: var(--space-xl) 0 var(--space-md);
+    padding: var(--space-md);
+  }
+  
+  .matrix-intro p {
+    font-size: 1rem;
+  }
 }
 
 /* ===== Impact vs Effort Matrix ===== */
