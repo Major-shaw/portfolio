@@ -2163,6 +2163,164 @@ main {
   border-top: 1px solid var(--color-border-light);
 }
 
+/* Research Grid - New Layout */
+.research-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  margin-top: var(--space-xl);
+  padding: var(--space-xl);
+  background: var(--color-bg-card);
+  border-radius: var(--border-radius-xl);
+  border: 1px solid var(--color-border-light);
+}
+
+.research-grid__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.research-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.research-stat__label {
+  font-size: var(--fs-body);
+  color: #838383;
+  font-weight: var(--fw-regular);
+}
+
+.research-stat__value {
+  font-size: 1.125rem;
+  color: var(--color-text-primary);
+  font-weight: var(--fw-regular);
+  line-height: 1.5;
+}
+
+.research-note {
+  font-size: var(--fs-body);
+  color: #838383;
+  margin-top: var(--space-lg);
+  text-align: center;
+}
+
+/* Player Insights - Quote + Root Cause Pairs */
+.player-insights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.insight-pair {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.insight-pair--reverse {
+  direction: rtl;
+}
+
+.insight-pair--reverse > * {
+  direction: ltr;
+}
+
+.insight-arrow {
+  font-size: 2rem;
+  color: var(--color-border);
+  font-weight: var(--fw-light);
+}
+
+/* Quote Cards - Colored variants */
+.quote-card {
+  position: relative;
+  padding: var(--space-lg);
+  border-radius: 32px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quote-card--blue {
+  background: #EBF3FE;
+  border: 4px solid #7FA0CB;
+}
+
+.quote-card--orange {
+  background: #FEEBDA;
+  border: 4px solid #D99F75;
+}
+
+.quote-card--teal {
+  background: #D8F5F3;
+  border: 4px solid #5F9FA1;
+}
+
+.quote-card__icon {
+  position: absolute;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  width: 32px;
+  height: 32px;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.quote-card__text {
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  margin: 0;
+  font-weight: var(--fw-regular);
+}
+
+/* Root Cause Mini Cards */
+.root-cause-mini {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  padding: var(--space-lg);
+  background: var(--color-bg-card);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border-light);
+}
+
+.root-cause-mini__num {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--color-accent-primary);
+  color: #fff;
+  border-radius: 50%;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-bold);
+}
+
+.root-cause-mini__content {
+  flex: 1;
+}
+
+.root-cause-mini__content strong {
+  display: block;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.root-cause-mini__content p {
+  font-size: var(--fs-small);
+  color: var(--color-text-body);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Legacy table styles - keep for backwards compatibility */
 .research-table {
   width: 100%;
   max-width: 800px;
@@ -3402,4 +3560,61 @@ main {
 .game-screenshots img,
 .phone-mockup img {
   cursor: zoom-in;
+}
+
+/* ===== Responsive: Research Grid & Player Insights ===== */
+@media (max-width: 1024px) {
+  .research-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .insight-pair {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .insight-pair--reverse {
+    direction: ltr;
+  }
+
+  .insight-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .research-grid {
+    padding: var(--space-lg);
+  }
+
+  .research-stat__label {
+    font-size: var(--fs-small);
+  }
+
+  .research-stat__value {
+    font-size: var(--fs-body);
+  }
+
+  .quote-card {
+    padding: var(--space-md);
+    border-radius: 24px;
+    border-width: 3px;
+  }
+
+  .quote-card__text {
+    font-size: var(--fs-small);
+  }
+
+  .root-cause-mini {
+    padding: var(--space-md);
+  }
+
+  .root-cause-mini__content strong {
+    font-size: var(--fs-small);
+  }
+
+  .root-cause-mini__content p {
+    font-size: var(--fs-xs);
+  }
 }
