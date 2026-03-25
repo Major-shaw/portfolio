@@ -675,77 +675,127 @@
 
         <!-- Impact vs Effort Matrix -->
         <div class="impact-effort-matrix reveal">
-          <h3 class="matrix-title">Impact vs Effort Matrix</h3>
-          <p class="matrix-subtitle">Prioritizing ideas based on potential impact and implementation effort</p>
+          <h3 class="matrix-title">Impact vs. Effort Matrix (UX + Product)</h3>
           
           <div class="matrix-container">
             <!-- Y-axis label -->
             <div class="matrix-axis matrix-axis--y">
-              <span class="matrix-axis__label">IMPACT</span>
               <span class="matrix-axis__high">High</span>
+              <span class="matrix-axis__label">Impact</span>
               <span class="matrix-axis__low">Low</span>
             </div>
             
             <!-- Matrix grid -->
             <div class="matrix-grid">
-              <!-- Quadrant: High Impact, Low Effort (TOP LEFT) -->
+              <!-- Quadrant: High Impact, Low Effort (TOP LEFT) - GREEN -->
               <div class="matrix-quadrant matrix-quadrant--quick-wins">
-                <span class="matrix-quadrant__label">Quick Wins</span>
-                <div class="matrix-item matrix-item--green">
-                  <span class="matrix-item__dot"></span>
-                  <span>Mid-Level Gratification</span>
+                <div class="matrix-quadrant__header matrix-quadrant__header--green">
+                  High Impact · Low Effort
                 </div>
-                <div class="matrix-item matrix-item--green">
-                  <span class="matrix-item__dot"></span>
-                  <span>Segmented Progress Bar</span>
-                </div>
-                <div class="matrix-item matrix-item--green">
-                  <span class="matrix-item__dot"></span>
-                  <span>Tile Tap Feedback</span>
-                </div>
-              </div>
-              
-              <!-- Quadrant: High Impact, High Effort (TOP RIGHT) -->
-              <div class="matrix-quadrant matrix-quadrant--major-projects">
-                <span class="matrix-quadrant__label">Major Projects</span>
-                <div class="matrix-item matrix-item--selected">
-                  <span class="matrix-item__dot"></span>
-                  <span>Quest Centre</span>
-                  <span class="matrix-item__tag">Selected</span>
-                </div>
-                <div class="matrix-item matrix-item--blue">
-                  <span class="matrix-item__dot"></span>
-                  <span>Colour Challenge & Match Blast</span>
-                </div>
-                <div class="matrix-item matrix-item--blue">
-                  <span class="matrix-item__dot"></span>
-                  <span>Events on Outro</span>
+                <h4 class="matrix-quadrant__title">Quick Wins</h4>
+                <div class="matrix-items">
+                  <div class="matrix-item">
+                    <span class="matrix-item__bullet">•</span>
+                    <span>Tile Tap Feedback</span>
+                  </div>
+                  <div class="matrix-item">
+                    <span class="matrix-item__bullet">•</span>
+                    <span>Rack Feedback</span>
+                  </div>
+                  <div class="matrix-item">
+                    <span class="matrix-item__bullet">•</span>
+                    <span>Mid-Level Gratification</span>
+                  </div>
+                  <div class="matrix-item">
+                    <span class="matrix-item__bullet">•</span>
+                    <span>Remove Transition Screen</span>
+                  </div>
+                  <div class="matrix-item">
+                    <span class="matrix-item__bullet">•</span>
+                    <span>Tappable CTA on Home Screen</span>
+                  </div>
                 </div>
               </div>
               
-              <!-- Quadrant: Low Impact, Low Effort (BOTTOM LEFT) -->
-              <div class="matrix-quadrant matrix-quadrant--fill-ins">
-                <span class="matrix-quadrant__label">Fill-ins</span>
-                <div class="matrix-item matrix-item--gray">
-                  <span class="matrix-item__dot"></span>
-                  <span>New Tile Symbol Experiments</span>
+              <!-- Quadrant: High Impact, High Effort (TOP RIGHT) - BLUE -->
+              <div class="matrix-quadrant matrix-quadrant--strategic">
+                <div class="matrix-quadrant__header matrix-quadrant__header--blue">
+                  High Impact · High Effort
                 </div>
-                <div class="matrix-item matrix-item--gray">
-                  <span class="matrix-item__dot"></span>
-                  <span>HS & Game Board Improvements</span>
+                <h4 class="matrix-quadrant__title">Strategic Bets</h4>
+                <div class="matrix-items matrix-items--two-col">
+                  <div class="matrix-item-group">
+                    <div class="matrix-item matrix-item--highlight">
+                      <span class="matrix-item__bullet">•</span>
+                      <span>Quest Centre</span>
+                    </div>
+                    <div class="matrix-item">
+                      <span class="matrix-item__bullet">•</span>
+                      <span>Segmented Progress Bar</span>
+                    </div>
+                    <div class="matrix-item">
+                      <span class="matrix-item__bullet">•</span>
+                      <span>Milestone-Based Reward Grant</span>
+                    </div>
+                  </div>
+                  <div class="matrix-item-group">
+                    <div class="matrix-item">
+                      <span class="matrix-item__bullet">•</span>
+                      <span>Shorter Chapter Length</span>
+                    </div>
+                    <div class="matrix-item">
+                      <span class="matrix-item__bullet">•</span>
+                      <span>Social Proofing</span>
+                    </div>
+                    <div class="matrix-item">
+                      <span class="matrix-item__bullet">•</span>
+                      <span>Events on Outro</span>
+                    </div>
+                  </div>
                 </div>
               </div>
               
-              <!-- Quadrant: Low Impact, High Effort (BOTTOM RIGHT) -->
-              <div class="matrix-quadrant matrix-quadrant--time-sinks">
-                <span class="matrix-quadrant__label">Time Sinks</span>
-                <div class="matrix-item matrix-item--red">
-                  <span class="matrix-item__dot"></span>
-                  <span>Social Proofing</span>
+              <!-- Quadrant: Low Impact, Low Effort (BOTTOM LEFT) - YELLOW -->
+              <div class="matrix-quadrant matrix-quadrant--nice-to-have">
+                <div class="matrix-quadrant__header matrix-quadrant__header--yellow">
+                  Low Impact · Low Effort
                 </div>
-                <div class="matrix-item matrix-item--red">
-                  <span class="matrix-item__dot"></span>
-                  <span>Power-Up Prompts & Rack Feedback</span>
+                <h4 class="matrix-quadrant__title">Nice-to-Have Enhancements</h4>
+                <div class="matrix-items matrix-items--two-col">
+                  <div class="matrix-item-group">
+                    <div class="matrix-item">
+                      <span class="matrix-item__bullet">•</span>
+                      <span>New Tiles Symbol Experiments</span>
+                    </div>
+                    <div class="matrix-item">
+                      <span class="matrix-item__bullet">•</span>
+                      <span>Minor Visual Refreshes</span>
+                    </div>
+                  </div>
+                  <div class="matrix-item-group">
+                    <div class="matrix-item">
+                      <span class="matrix-item__bullet">•</span>
+                      <span>Small HS Polish Changes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Quadrant: Low Impact, High Effort (BOTTOM RIGHT) - RED -->
+              <div class="matrix-quadrant matrix-quadrant--deprioritized">
+                <div class="matrix-quadrant__header matrix-quadrant__header--red">
+                  Low Impact · High Effort
+                </div>
+                <h4 class="matrix-quadrant__title">Deprioritized / Experimental</h4>
+                <div class="matrix-items">
+                  <div class="matrix-item">
+                    <span class="matrix-item__bullet">•</span>
+                    <span>Colour Challenge</span>
+                  </div>
+                  <div class="matrix-item">
+                    <span class="matrix-item__bullet">•</span>
+                    <span>Match Blast Levels</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -753,14 +803,14 @@
             <!-- X-axis label -->
             <div class="matrix-axis matrix-axis--x">
               <span class="matrix-axis__low">Low</span>
-              <span class="matrix-axis__label">EFFORT</span>
+              <span class="matrix-axis__label">Effort</span>
               <span class="matrix-axis__high">High</span>
             </div>
           </div>
           
           <div class="matrix-legend">
             <div class="matrix-legend__item">
-              <span class="matrix-legend__dot matrix-legend__dot--selected"></span>
+              <span class="matrix-legend__dot matrix-legend__dot--highlight"></span>
               <span>Selected for implementation</span>
             </div>
           </div>
