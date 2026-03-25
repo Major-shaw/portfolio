@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily/Weekly Quest System | Gurleen Kaur — UX Case Study</title>
+  <meta name="description" content="UX Case Study: Daily/Weekly Quest System for Tile Match mobile game. Designed to increase multi-day retention through daily goals and weekly progression.">
+  
+  <!-- Favicon -->
+  <link href="https://framerusercontent.com/images/3dpALmvrIR88qPmbDlYoTyJSig.png" rel="icon">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Daily/Weekly Quest System — UX Case Study">
+  <meta property="og:description" content="A daily task system designed to increase multi-day retention by giving players clear daily goals and a rewarding weekly progression arc.">
+  <meta property="og:image" content="Images/Final.img.1.png">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Daily/Weekly Quest System — UX Case Study">
+  <meta name="twitter:description" content="A daily task system designed to increase multi-day retention through daily goals and weekly progression.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Background -->
+  <div class="noise-overlay"></div>
+  <div class="glow-container">
+    <div class="glow-orb blob-primary"></div>
+    <div class="glow-orb blob-secondary"></div>
+    <div class="glow-orb blob-tertiary"></div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- SECTION: Navigation -->
+  <!-- ============================================================ -->
+  <nav class="site-nav" id="site-nav">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__logo">
+        <span class="site-nav__logo-icon">GK</span>
+        <span class="site-nav__logo-text">Case Study</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="site-nav__links" id="nav-links">
+        <li><a href="#about">Context</a></li>
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#hypothesis">Hypothesis</a></li>
+        <li><a href="#choosing">Solution</a></li>
+        <li><a href="#user-flows">Flows</a></li>
+        <li><a href="#final-mocks">Mocks</a></li>
+        <li><a href="#impact">Impact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <main>
+    <!-- ============================================================ -->
+    <!-- SECTION: Hero -->
+    <!-- ============================================================ -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="reveal">
+          <a href="../../index.html" class="hero__back-link">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back to Work
+          </a>
+          
+          <div class="hero__top-row">
+            <div class="hero__badges">
+              <span class="hero__badge">UX Case Study</span>
+              <span class="hero__badge hero__badge--outline">Mobile Gaming</span>
+              <span class="hero__badge hero__badge--outline">Retention</span>
+            </div>
+            <span class="hero__reading-time">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              8 min read
+            </span>
+          </div>
+          
+          <h1 class="hero__title">Daily/Weekly Quest System</h1>
+          <p class="hero__tagline">Lighthouse for Retention</p>
+          <p class="hero__description">A daily task system designed to increase multi-day retention by giving players clear daily goals and a rewarding weekly progression arc.</p>
+          
+          <div class="hero__meta">
+            <div class="hero__meta-item">
+              <span class="hero__meta-label">Timeline</span>
+              <span class="hero__meta-value">June — July 2025</span>
+            </div>
+            <div class="hero__meta-item">
+              <span class="hero__meta-label">Role</span>
+              <span class="hero__meta-value">Product Designer</span>
+            </div>
+            <div class="hero__meta-item">
+              <span class="hero__meta-label">Platform</span>
+              <span class="hero__meta-value">iOS & Android</span>
+            </div>
+          </div>
+          
+          <!-- TL;DR for recruiters -->
+          <div class="hero__tldr">
+            <h3 class="hero__tldr-title">TL;DR</h3>
+            <p class="hero__tldr-text">Designed a daily quest system for a 500K+ DAU mobile game to address <strong>67% Day 2 retention drop</strong>. Through user research and data analysis, identified that players lacked motivation to return daily. Solution delivered <strong>+5% D7 retention</strong> and <strong>+6% level views</strong>.</p>
+            <a href="#impact" class="hero__tldr-cta">
+              Jump to Results
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: About Tile Match -->
+    <!-- ============================================================ -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about__layout reveal">
+          <div class="about__content">
+            <p class="section-label"><span class="section-number">01</span>Context</p>
+            <h2 class="section-title">A little about Tile Match</h2>
+            <p class="about__description">
+              Tile Match is a <strong>casual</strong>, <strong>ad-based</strong> mobile puzzle game where players clear levels by matching sets of tiles. Beyond the core gameplay, progression systems, live events, rewards, and rewarded ads drive motivation, variety, and long-term engagement.
+            </p>
+            
+            <div class="metrics-row">
+              <div class="metric-card">
+                <div class="metric-card__number">$70K</div>
+                <div class="metric-card__label">Daily Revenue</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-card__number">500K+</div>
+                <div class="metric-card__label">DAU</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-card__number">50L+</div>
+                <div class="metric-card__label">App Downloads</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-card__number">4.9</div>
+                <div class="metric-card__label">Rating</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="about__mockups">
+            <div class="phone-mockup">
+              <img loading="lazy" src="Images/Mockup.1.png" alt="Tile Match App - Home Screen and Game Board">
+            </div>
+            <div class="phone-mockup">
+              <img loading="lazy" src="Images/Mockup.2.png" alt="Tile Match App - Progression Systems">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Overview -->
+    <!-- ============================================================ -->
+    <section class="overview" id="overview">
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label"><span class="section-number">02</span>Research</p>
+          <h2 class="section-title">Overview</h2>
+        </div>
+
+        <!-- Sub-section: Setting the Scene -->
+        <div class="reveal sub-section-sm">
+          <h3 class="section-subtitle">Setting the Scene</h3>
+          <p class="body-text">
+            <strong>We saw a clear drop in player retention after Day 1.</strong> A lot of players were not returning the next day (Rolling Retention).<br>
+            To understand <strong>WHY</strong>, we analysed a week of player behaviour data and reviewed 7&ndash;8 play test sessions, allowing us to align ultimate goal and design decisions with real player needs.
+          </p>
+        </div>
+
+        <!-- Sub-section: The Problem -->
+        <div class="reveal sub-section">
+          <h3 class="section-subtitle">The Problem</h3>
+          <p class="body-text">
+            This chart shows engagement and retention patterns over one week for players who installed the game, highlighting how activity changes as players return across multiple days.
+          </p>
+        </div>
+
+        <!-- Retention Funnel Visualization -->
+        <div class="retention-viz reveal">
+          <div class="retention-chart">
+            <!-- Chart Header -->
+            <div class="retention-chart__header">
+              <div class="retention-chart__title-group">
+                <h4 class="retention-chart__title">Retention Funnel Analysis</h4>
+                <span class="retention-chart__subtitle">Tracking player drop-off from install to Day 7</span>
+              </div>
+              <div class="retention-chart__legend">
+                <span class="retention-chart__legend-item">
+                  <span class="legend-dot legend-dot--active"></span>
+                  Active Players
+                </span>
+                <span class="retention-chart__legend-item">
+                  <span class="legend-dot legend-dot--drop"></span>
+                  Drop-off Point
+                </span>
+              </div>
+            </div>
+
+            <!-- Visual Funnel -->
+            <div class="retention-funnel">
+              <!-- Day 1 Bar -->
+              <div class="funnel-row">
+                <div class="funnel-row__label">
+                  <span class="funnel-row__day">Day 1</span>
+                  <span class="funnel-row__desc">Installs</span>
+                </div>
+                <div class="funnel-row__bar-container">
+                  <div class="funnel-row__bar funnel-row__bar--day1" style="width: 100%;">
+                    <span class="funnel-row__bar-value">70%</span>
+                    <span class="funnel-row__bar-detail">Active + Passive Players</span>
+                  </div>
+                </div>
+                <div class="funnel-row__stat">
+                  <span class="funnel-row__stat-main">500K+</span>
+                  <span class="funnel-row__stat-sub">DAU</span>
+                </div>
+              </div>
+
+              <!-- Drop indicator -->
+              <div class="funnel-drop">
+                <div class="funnel-drop__line"></div>
+                <div class="funnel-drop__badge">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M3 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>-53% drop</span>
+                </div>
+                <div class="funnel-drop__line"></div>
+              </div>
+
+              <!-- Day 2 Bar -->
+              <div class="funnel-row funnel-row--problem">
+                <div class="funnel-row__label">
+                  <span class="funnel-row__day">Day 2</span>
+                  <span class="funnel-row__desc">Retention</span>
+                </div>
+                <div class="funnel-row__bar-container">
+                  <div class="funnel-row__bar funnel-row__bar--day2" style="width: 47%;">
+                    <span class="funnel-row__bar-value">33%</span>
+                    <span class="funnel-row__bar-detail">89% are active</span>
+                  </div>
+                  <div class="funnel-row__bar-ghost"></div>
+                </div>
+                <div class="funnel-row__stat funnel-row__stat--highlight">
+                  <span class="funnel-row__stat-alert">!</span>
+                  <span class="funnel-row__stat-sub">Problem Area</span>
+                </div>
+              </div>
+
+              <!-- Drop indicator -->
+              <div class="funnel-drop">
+                <div class="funnel-drop__line"></div>
+                <div class="funnel-drop__badge">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M3 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>-45% drop</span>
+                </div>
+                <div class="funnel-drop__line"></div>
+              </div>
+
+              <!-- Day 3 Bar -->
+              <div class="funnel-row">
+                <div class="funnel-row__label">
+                  <span class="funnel-row__day">Day 3</span>
+                  <span class="funnel-row__desc">Retention</span>
+                </div>
+                <div class="funnel-row__bar-container">
+                  <div class="funnel-row__bar funnel-row__bar--day3" style="width: 26%;">
+                    <span class="funnel-row__bar-value">18%</span>
+                    <span class="funnel-row__bar-detail">97% active</span>
+                  </div>
+                  <div class="funnel-row__bar-ghost"></div>
+                </div>
+                <div class="funnel-row__stat">
+                  <span class="funnel-row__stat-main">20-30</span>
+                  <span class="funnel-row__stat-sub">views/day</span>
+                </div>
+              </div>
+
+              <!-- Dots indicator -->
+              <div class="funnel-dots">
+                <span></span><span></span><span></span>
+              </div>
+
+              <!-- Day 7 Bar -->
+              <div class="funnel-row funnel-row--power">
+                <div class="funnel-row__label">
+                  <span class="funnel-row__day">Day 7</span>
+                  <span class="funnel-row__desc">Power Users</span>
+                </div>
+                <div class="funnel-row__bar-container">
+                  <div class="funnel-row__bar funnel-row__bar--day7" style="width: 11%;">
+                    <span class="funnel-row__bar-value">7.9%</span>
+                    <span class="funnel-row__bar-detail">~48 views/day</span>
+                  </div>
+                  <div class="funnel-row__bar-ghost"></div>
+                </div>
+                <div class="funnel-row__stat funnel-row__stat--success">
+                  <span class="funnel-row__stat-main">⭐</span>
+                  <span class="funnel-row__stat-sub">Highly Engaged</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Summary Stats -->
+            <div class="retention-chart__summary">
+              <div class="summary-stat summary-stat--problem">
+                <span class="summary-stat__value">-89%</span>
+                <span class="summary-stat__label">Total drop D1→D7</span>
+              </div>
+              <div class="summary-stat summary-stat--insight">
+                <span class="summary-stat__value">+16%</span>
+                <span class="summary-stat__label">Activity increase (retained users)</span>
+              </div>
+              <div class="summary-stat">
+                <span class="summary-stat__value">67%</span>
+                <span class="summary-stat__label">Lost by Day 2</span>
+              </div>
+            </div>
+
+            <!-- Key Insight -->
+            <div class="retention-chart__insight">
+              <div class="insight-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v5M10 13.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <p><strong>Key Finding:</strong> Players who stay are highly engaged — the problem isn't engagement quality, it's getting them to return. <strong>We lose over half our active users by Day 2.</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Qualitative analysis -->
+        <div class="reveal sub-section-sm">
+          <p class="body-text">
+            To go beyond numbers, I analysed play-test recordings where players verbalised their thoughts while playing. This helped surface the gaps and unmet expectations beyond what data showed.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Key Insights + What We Analysed -->
+    <!-- ============================================================ -->
+    <section class="insights" id="insights">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">Key Insights & What We Analysed</h2>
+        </div>
+
+        <div class="insights__grid">
+          <div class="reveal">
+            <h3 class="insights__column-title">Key Insights</h3>
+            <div class="insight-card">
+              <p>A large portion of week-2 players lack a reason to come back daily.</p>
+            </div>
+            <div class="insight-card">
+              <p>Engagement compounds with each additional return.</p>
+            </div>
+            <div class="insight-card">
+              <p>A small retained segment delivers higher engagement.</p>
+            </div>
+          </div>
+          <div class="reveal">
+            <h3 class="insights__column-title">What We Analysed</h3>
+            <div class="need-card">
+              <p>Need an appointment mechanic that gives players a clear, low-effort reason to return every day, without increasing cognitive or gameplay complexity.</p>
+            </div>
+            <div class="need-card">
+              <p>The system need to scale across player types, supporting quick, casual sessions while also allowing highly engaged players to progress without artificial caps.</p>
+            </div>
+            <div class="need-card">
+              <p>Focus should be on repeat activation, ensuring that players experience visible progress and rewards within their first few returns to reinforce the habit loop.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: User Research -->
+    <!-- ============================================================ -->
+    <section class="user-research" id="user-research">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">User Research</h2>
+          <table class="research-table">
+            <tbody>
+              <tr>
+                <th>No of players</th>
+                <td>7-8 players</td>
+              </tr>
+              <tr>
+                <th>Age group</th>
+                <td>45 yrs &amp; beyond</td>
+              </tr>
+              <tr>
+                <th>Location</th>
+                <td>US, Canada &amp; United Kingdom</td>
+              </tr>
+              <tr>
+                <th>Player type</th>
+                <td>Older playing brain training games, casual puzzle games or 3D match games</td>
+              </tr>
+              <tr>
+                <th>Days played</th>
+                <td>5-6 days</td>
+              </tr>
+              <tr>
+                <th>Session length</th>
+                <td>30-40 mins</td>
+              </tr>
+              <tr>
+                <th>No of sessions</th>
+                <td>3-4</td>
+              </tr>
+              <tr>
+                <th>Device type</th>
+                <td>Mobile phone &amp; tabs</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="research-note">After player cleared level 55</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Retention Data -->
+    <!-- ============================================================ -->
+    <section class="retention" id="retention">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">Retention &amp; Engagement Data</h2>
+        </div>
+
+        <div class="retention__metrics reveal">
+          <div class="retention__metric">
+            <div class="retention__metric-number">5%</div>
+            <div class="retention__metric-label">Lifetime Value</div>
+          </div>
+          <div class="retention__metric">
+            <div class="retention__metric-number">3%</div>
+            <div class="retention__metric-label">D2 Retention</div>
+          </div>
+          <div class="retention__metric">
+            <div class="retention__metric-number">2.5%</div>
+            <div class="retention__metric-label">Session Length</div>
+          </div>
+        </div>
+
+        <!-- Cohort Funnel -->
+        <div class="funnel reveal">
+          <div class="funnel__step">
+            <div class="funnel__step-label">Day 1</div>
+            <div class="funnel__step-value">70% DAU</div>
+            <div class="funnel__step-detail">51% Active / 19% Passive</div>
+          </div>
+          <div class="funnel__arrow">&#8594;</div>
+          <div class="funnel__step">
+            <div class="funnel__step-label">Day 2</div>
+            <div class="funnel__step-value">33% Retention</div>
+            <div class="funnel__step-detail">89% Active</div>
+          </div>
+          <div class="funnel__arrow">&#8594;</div>
+          <div class="funnel__step">
+            <div class="funnel__step-label">Day 3</div>
+            <div class="funnel__step-value">18% Retention</div>
+            <div class="funnel__step-detail">97% Active</div>
+          </div>
+          <div class="funnel__arrow">&#8594;</div>
+          <div class="funnel__step">
+            <div class="funnel__step-label">Day 7</div>
+            <div class="funnel__step-value">~7.9% DAU</div>
+            <div class="funnel__step-detail">Power Users</div>
+          </div>
+        </div>
+
+        <!-- Engagement Tiers -->
+        <h3 class="section-subtitle reveal">Engagement Tiers</h3>
+        <div class="engagement-tiers reveal">
+          <div class="tier tier--problem">
+            <div class="tier__label">Problem Area</div>
+            <div class="tier__value">Avg: 3-5 views/Day</div>
+          </div>
+          <div class="tier">
+            <div class="tier__label">Moderate</div>
+            <div class="tier__value">Avg: 5-20 views/Day</div>
+          </div>
+          <div class="tier">
+            <div class="tier__label">High</div>
+            <div class="tier__value">Avg: 20-30 views/Day</div>
+          </div>
+          <div class="tier tier--highlight">
+            <div class="tier__label">Power Users</div>
+            <div class="tier__value">Avg: ~48 views/Day<br>50% do &gt; 20 views</div>
+          </div>
+        </div>
+
+        <div class="key-insight-box reveal">
+          Key Insight: Players retained for the week are ~16% more active than Day 1 users.
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: The Problem -->
+    <!-- ============================================================ -->
+    <section class="problem" id="problem">
+      <div class="container">
+        <div class="player-quotes reveal">
+          <div class="quote-card">
+            <p>&ldquo;What should I talk about there is nothing new in the game.&rdquo;</p>
+          </div>
+          <div class="quote-card">
+            <p>&ldquo;Apart from progressing, isn&rsquo;t there any reward for clearing levels?&rdquo;</p>
+          </div>
+          <div class="quote-card">
+            <p>&ldquo;How long the chapter length, I want to see the next chapter&rdquo;</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Digging Deeper -->
+    <!-- ============================================================ -->
+    <section class="digging-deeper" id="digging-deeper">
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label"><span class="section-number">03</span>Analysis</p>
+          <h2 class="section-title">Digging Deeper</h2>
+          <p class="body-text">Understanding player behaviour through root cause analysis.</p>
+        </div>
+
+        <div class="root-causes reveal">
+          <div class="root-cause-card">
+            <div class="root-cause-card__number">01</div>
+            <h3 class="root-cause-card__title">State of Boredom &amp; Stagnation</h3>
+            <p class="root-cause-card__desc">The core loop lacks "hooks" or varied mechanics, leading to rapid disengagement before habits can form.</p>
+          </div>
+          <div class="root-cause-card">
+            <div class="root-cause-card__number">02</div>
+            <h3 class="root-cause-card__title">Broken Value Exchange (Lack of Motivation)</h3>
+            <p class="root-cause-card__desc">Players perceive a lack of extrinsic reward for their effort. Intrinsic motivation (just clearing the level) is insufficient.</p>
+          </div>
+          <div class="root-cause-card">
+            <div class="root-cause-card__number">03</div>
+            <h3 class="root-cause-card__title">Progression Opacity</h3>
+            <p class="root-cause-card__desc">Long chapters without intermediate milestones create "progression fatigue." Players feel stuck because they cannot see the finish line.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Hypothesis -->
+    <!-- ============================================================ -->
+    <section class="hypothesis" id="hypothesis">
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label"><span class="section-number">04</span>Hypothesis</p>
+          <h2 class="section-title">Hypothesis</h2>
+          <p class="body-text" style="margin-bottom: var(--space-lg);">After going through both qualitative &amp; quantitative data, I came up with the hypothesis that &mdash;</p>
+          <div class="hypothesis__statement">
+            The game lacks a clear system to encourage daily returns. This might be due to limited daily motivation, lack of clear progression goals, repetitive content or external factors like time constraints. Improving perceived purpose in daily sessions should lead to stronger multi-day retention and engagement.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Asking the Right Questions -->
+    <!-- ============================================================ -->
+    <section class="questions" id="questions">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">Asking the Right Questions</h2>
+          <p class="body-text">Based on our hypothesis, we need to identify opportunities that could encourage daily returns, make progress feel meaningful, and introduce freshness into recurring play sessions.</p>
+        </div>
+
+        <div class="hmw-grid reveal">
+          <div class="hmw-card">
+            <h3 class="hmw-card__question">How might we ignite Daily Motivation?</h3>
+            <p class="hmw-card__goal">Giving player reason to return.</p>
+          </div>
+          <div class="hmw-card">
+            <h3 class="hmw-card__question">How might we visualise Forward Momentum?</h3>
+            <p class="hmw-card__goal">Making progress, goals, &amp; next steps clear, fast, and motivating.</p>
+          </div>
+          <div class="hmw-card">
+            <h3 class="hmw-card__question">How might we inject Variety &amp; Novelty?</h3>
+            <p class="hmw-card__goal">Reducing boredom through delight moments, freshness, &amp; content variation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Brainstorming -->
+    <!-- ============================================================ -->
+    <section class="brainstorming" id="brainstorming">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">Brainstorming</h2>
+          <p class="body-text">Exploring multiple solution directions before selecting the best approach.</p>
+        </div>
+
+        <div class="ideas-grid reveal">
+          <div class="idea-card">
+            <h4 class="idea-card__title">Tile Tap Feedback</h4>
+            <p class="idea-card__desc">Physical satisfaction to every move.</p>
+          </div>
+          <div class="idea-card idea-card--selected">
+            <h4 class="idea-card__title">Quest Centre</h4>
+            <p class="idea-card__desc">Engine for daily/weekly 'appointment' mechanics.</p>
+            <span class="idea-card__tag">Selected</span>
+          </div>
+          <div class="idea-card">
+            <h4 class="idea-card__title">Social Proofing</h4>
+            <p class="idea-card__desc">Using peer progress to create a psychological pull to keep up.</p>
+          </div>
+          <div class="idea-card">
+            <h4 class="idea-card__title">Power-Up Prompts &amp; Rack Feedback</h4>
+            <p class="idea-card__desc">Supporting players during difficulty spikes to prevent frustration-driven drop-offs.</p>
+          </div>
+          <div class="idea-card">
+            <h4 class="idea-card__title">Events on Outro</h4>
+            <p class="idea-card__desc">Surfacing upcoming events immediately after a win to build anticipation.</p>
+          </div>
+          <div class="idea-card">
+            <h4 class="idea-card__title">HS &amp; Game Board Improvements</h4>
+            <p class="idea-card__desc">Refreshing the visual environment to reduce static boredom.</p>
+          </div>
+          <div class="idea-card">
+            <h4 class="idea-card__title">Colour Challenge &amp; Match Blast Levels</h4>
+            <p class="idea-card__desc">New level types to break the core loop&rsquo;s repetition.</p>
+          </div>
+          <div class="idea-card">
+            <h4 class="idea-card__title">Mid-Level Gratification</h4>
+            <p class="idea-card__desc">Positive feedback during gameplay, not just at the end.</p>
+          </div>
+          <div class="idea-card">
+            <h4 class="idea-card__title">New Tile Symbol Experiments</h4>
+            <p class="idea-card__desc">Visual variety to keep the board feeling fresh.</p>
+          </div>
+          <div class="idea-card">
+            <h4 class="idea-card__title">Shorter Chapter Length</h4>
+            <p class="idea-card__desc">Addressing &ldquo;chapter fatigue&rdquo; by moving goalposts closer.</p>
+          </div>
+          <div class="idea-card">
+            <h4 class="idea-card__title">Segmented Progress Bar</h4>
+            <p class="idea-card__desc">Breaking long-term progression into visible, bite-sized steps.</p>
+          </div>
+          <div class="idea-card">
+            <h4 class="idea-card__title">Milestone Reward Grants</h4>
+            <p class="idea-card__desc">Milestone based reward grant in longer chapters.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Choosing the Right Bet -->
+    <!-- ============================================================ -->
+    <section class="choosing" id="choosing">
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label"><span class="section-number">05</span>Solution</p>
+          <h2 class="section-title">Choosing the Right Bet</h2>
+        </div>
+
+        <table class="criteria-table reveal">
+          <thead>
+            <tr>
+              <th>Criteria</th>
+              <th style="text-align:center;">Quest Centre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Drives daily return</td>
+              <td class="check">&#10004;</td>
+            </tr>
+            <tr>
+              <td>Make progress visible across days</td>
+              <td class="check">&#10004;</td>
+            </tr>
+            <tr>
+              <td>Support short &amp; long sessions</td>
+              <td class="check">&#10004;</td>
+            </tr>
+            <tr>
+              <td>Scales with future features</td>
+              <td class="check">&#10004;</td>
+            </tr>
+            <tr>
+              <td>Given upsides to other PS games</td>
+              <td class="check">&#10004;</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="mechanics-description reveal">
+          <h3 class="section-subtitle">Feature Mechanics: Quest Centre</h3>
+          <p><strong>Objective:</strong> Introduce daily/weekly quest system</p>
+          <br>
+          <p>The mechanic uses a progression loop over a longer duration. Players receive <strong>9 Daily Quests</strong>, varying from low-effort to high-engagement actions, &amp; objectives span across multiple game modes, encouraging broader feature discovery without forcing it.</p>
+          <br>
+          <p>Every completed quest grants specific currency that fills a global progression bar. <strong>Layered Rewards:</strong> A tiered "Nursery" bar provides instant gratification with 3 intermediate milestones which sinks with weekly progress bar. This 6-7 day cycle was introduced to provide a consistent engagement hook that complements our existing 1-3 day short-form events.</p>
+        </div>
+
+        <div class="reveal sub-section-sm">
+          <h3 class="section-subtitle">Reward Mechanics</h3>
+          <div class="hmw-grid">
+            <div class="hmw-card">
+              <h4 class="hmw-card__question">Rewards</h4>
+              <p class="hmw-card__goal">To fix the "unrewarding" feeling. Every day task &amp; multi-day engagement.</p>
+            </div>
+            <div class="hmw-card">
+              <h4 class="hmw-card__question">Short-term Goals</h4>
+              <p class="hmw-card__goal">To fix session boredom. Timed challenges.</p>
+            </div>
+            <div class="hmw-card">
+              <h4 class="hmw-card__question">Reset Timers</h4>
+              <p class="hmw-card__goal">To trigger "Fear of Missing Out" (FOMO) and drive return sessions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Quest Popup Iterations -->
+    <!-- ============================================================ -->
+    <section class="iterations" id="iterations">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">Iteration for the Quest Pop Up</h2>
+          <p class="body-text">Before starting with the flows of the feature, I did some iterations on the visual, info hierarchy, interactions for the quest pop up.</p>
+        </div>
+
+        <div class="design-principles reveal">
+          <div class="principle">
+            <span class="principle__icon">&#9654;</span>
+            <span>CTA leading back to core gameplay in single tap</span>
+          </div>
+          <div class="principle">
+            <span class="principle__icon">&#128100;</span>
+            <span>Character presence to build emotional engagement</span>
+          </div>
+          <div class="principle">
+            <span class="principle__icon">&#127942;</span>
+            <span>Milestone based reward for goal gradient effect</span>
+          </div>
+          <div class="principle">
+            <span class="principle__icon">&#10003;</span>
+            <span>Quest complete feedback on level complete Outro screen</span>
+          </div>
+          <div class="principle">
+            <span class="principle__icon">&#127968;</span>
+            <span>Quest icon on Home Screen</span>
+          </div>
+          <div class="principle">
+            <span class="principle__icon">&#128077;</span>
+            <span>Manual claim for positive reinforcement</span>
+          </div>
+        </div>
+
+        <div class="iteration-screens reveal mt-xl">
+          <img loading="lazy" src="Images/Iteration.img1.png" alt="Quest Popup Iteration 1">
+          <img loading="lazy" src="Images/Iteration.img.2.png" alt="Quest Popup Iteration 2">
+          <img loading="lazy" src="Images/Iteration.img.3.png" alt="Quest Popup Iteration 3">
+          <img loading="lazy" src="Images/Iteration.img.4.png" alt="Quest Popup Iteration 4">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Quest Card States -->
+    <!-- ============================================================ -->
+    <section class="card-states" id="card-states">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">State of Quest Card</h2>
+        </div>
+
+        <div class="states-row reveal">
+          <div class="state-card">
+            <div class="state-card__label">Active State</div>
+            <img loading="lazy" src="Images/Quest.card.1.png" alt="Quest Card - Active State with progress bar" class="state-card__img">
+          </div>
+          <div class="state-card">
+            <div class="state-card__label">Claim State</div>
+            <img loading="lazy" src="Images/Quest.card.2.png" alt="Quest Card - Claimable State with Claim button" class="state-card__img">
+          </div>
+          <div class="state-card">
+            <div class="state-card__label">Completed State</div>
+            <img loading="lazy" src="Images/Quest.card.3.png" alt="Quest Card - Completed State with checkmark" class="state-card__img">
+          </div>
+        </div>
+
+        <div class="reveal sub-section-sm">
+          <h3 class="section-subtitle">Icon State on Home Screen</h3>
+          <div class="states-row">
+            <div class="state-card">
+              <div class="state-card__label">Incomplete State</div>
+              <img loading="lazy" src="Images/Icon.state.1.png" alt="Quest Icon - Incomplete State" class="icon-state__img">
+            </div>
+            <div class="state-card">
+              <div class="state-card__label">Claimable State</div>
+              <img loading="lazy" src="Images/Icon.state.2.png" alt="Quest Icon - Claimable with red jewel badge" class="icon-state__img">
+            </div>
+            <div class="state-card">
+              <div class="state-card__label">Claimed State</div>
+              <img loading="lazy" src="Images/Icon.state.3.png" alt="Quest Icon - Claimed State" class="icon-state__img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Feature Mechanics (detailed UI) -->
+    <!-- ============================================================ -->
+    <section class="feature-mechanics" id="feature-mechanics">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">Feature Mechanics &mdash; UI Details</h2>
+        </div>
+
+        <div class="ui-notes reveal">
+          <div class="ui-note">
+            <strong>Visual grouping</strong> of elements linked to weekly progress for better scanability.
+          </div>
+          <div class="ui-note">
+            <strong>Daily tasks stacked together</strong>, with visible cards being 5-6 to avoid working memory load.
+          </div>
+        </div>
+
+        <div class="feature-mechanics-imgs reveal mt-xl">
+          <img loading="lazy" src="Images/Detail.quest.card.png" alt="Full Quest Popup UI with daily quest cards and milestone rewards">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: UX Metrics -->
+    <!-- ============================================================ -->
+    <section class="ux-metrics" id="ux-metrics">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">UX Metrics</h2>
+        </div>
+
+        <ol class="metrics-list reveal">
+          <li>Surface the quest as such to keep a high top of the funnel. X% of DAUs discover out of which Y% interact with the quest surface daily.</li>
+          <li>Introduce the feature and teach the mechanics to players through a seamless first time user experience.</li>
+          <li>Create a simple and effective feedback that players enjoy and look forward to engaging with the quest everyday. X% of players advance to at least one weekly milestone reflecting long-term feature stickiness.</li>
+          <li>Create a scalable quest framework that can support future event variations and monetisation opportunities.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: User Flows (3 Phases) -->
+    <!-- ============================================================ -->
+    <section class="user-flows" id="user-flows">
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label"><span class="section-number">06</span>Flows</p>
+          <h2 class="section-title">User Flows</h2>
+          <p class="body-text">For the flows I broke the flow into 3 phases: Learning phase, Quest collection phase, and Reward grant flow.</p>
+        </div>
+
+        <div class="flow-tabs reveal">
+          <button class="flow-tab active" data-tab="phase1">Phase 1: Learning</button>
+          <button class="flow-tab" data-tab="phase2">Phase 2: Regular Flow</button>
+          <button class="flow-tab" data-tab="phase3">Phase 3: Reward Grant</button>
+        </div>
+
+        <!-- Phase 1 -->
+        <div class="flow-content active" id="phase1">
+          <div class="reveal">
+            <h3 class="section-subtitle">Phase 1 &mdash; FTUE (First Time User Experience) / Learning Phase</h3>
+            <ul class="flow-steps">
+              <li class="flow-step">Player cleared the level</li>
+              <li class="flow-step">Toaster appears on outro screen (feedback &mdash; player has completed a quest)</li>
+              <li class="flow-step">Player comes to Home Screen</li>
+              <li class="flow-step">FTUE on HS, with quest icon in claim state</li>
+              <li class="flow-step">Player taps on quest icon</li>
+              <li class="flow-step">Weekly Quest pop up appears</li>
+              <li class="flow-step">Red Jewel icon to indicate number of unclaimed rewards</li>
+              <li class="flow-step">Player taps on claim CTA</li>
+              <li class="flow-step">Reward grant CTA initiates</li>
+            </ul>
+            <p class="research-note mt-md">Edge case: player can complete multiple quests at a time.</p>
+          </div>
+          <div class="flow-diagram reveal mt-xl">
+            <img loading="lazy" src="Images/FTUE.flow.png" alt="Phase 1 - FTUE Learning Flow with screen annotations">
+          </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="flow-content" id="phase2">
+          <div class="reveal">
+            <h3 class="section-subtitle">Phase 2 &mdash; Regular Flow</h3>
+            <ul class="flow-steps">
+              <li class="flow-step">Player cleared the level</li>
+              <li class="flow-step">Toaster appears on outro screen</li>
+              <li class="flow-step">Player comes to Home Screen</li>
+              <li class="flow-step">Quest icon in claim state with jewel</li>
+              <li class="flow-step">Player taps on quest icon</li>
+              <li class="flow-step">Weekly Quest pop up appears</li>
+              <li class="flow-step">Red Jewel icon to indicate number of unclaimed rewards</li>
+              <li class="flow-step">Player taps on claim CTA</li>
+              <li class="flow-step">Reward grant CTA initiates</li>
+              <li class="flow-step">Player quit or kills the pop up without claiming the reward (alternative path)</li>
+            </ul>
+          </div>
+          <div class="flow-diagram reveal mt-xl">
+            <img loading="lazy" src="Images/Regular.flow.png" alt="Phase 2 - Regular Quest Collection Flow">
+          </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="flow-content" id="phase3">
+          <div class="reveal">
+            <h3 class="section-subtitle">Phase 3 &mdash; Reward Grant Sequence</h3>
+            <ul class="flow-steps">
+              <li class="flow-step">Player taps on &lsquo;Claim&rsquo;</li>
+              <li class="flow-step">Currency flies to Weekly Progress Bar</li>
+              <li class="flow-step">Quest Card state changes &mdash; &lsquo;completed&rsquo; state</li>
+              <li class="flow-step">Plant state updated. Sheen/shake animations on milestone and/or daily reward if achieved</li>
+              <li class="flow-step">Reward grant starts after plant state is updated</li>
+              <li class="flow-step">Gift Box animation &mdash; reward grant screen same as DC grant</li>
+              <li class="flow-step">Timer for Today&rsquo;s Tasks changed. Tick mark appears in place of Daily reward</li>
+              <li class="flow-step">Daily reward animation &mdash; fly like GT grant</li>
+              <li class="flow-step">Gift box in weekly bar replaced with &lsquo;tick&rsquo;. Target in holder updated. Daily reward progress updated</li>
+              <li class="flow-step">Player taps on &lsquo;Collect&rsquo;</li>
+            </ul>
+            <p class="research-note mt-md">All interactions are disabled after tap on &lsquo;Claim&rsquo; till grant sequence is over.</p>
+          </div>
+          <div class="flow-diagram reveal mt-xl">
+            <img loading="lazy" src="Images/Reward.flow.png" alt="Phase 3 - Reward Grant Sequence with animation annotations">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Final Mocks -->
+    <!-- ============================================================ -->
+    <section class="final-mocks" id="final-mocks">
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label"><span class="section-number">07</span>Designs</p>
+          <h2 class="section-title">Final Mocks</h2>
+        </div>
+
+        <div class="mocks-grid reveal">
+          <img loading="lazy" src="Images/Final.img.1.png" alt="Quest UI - Today's Task with timer and quest cards list" class="mock-img">
+          <img loading="lazy" src="Images/Final.img.2.png" alt="Quest UI - Claim state with Claim button visible" class="mock-img">
+          <img loading="lazy" src="Images/Detail.final.img1.png" alt="Quest UI - All completed with reward animation" class="mock-img">
+          <img loading="lazy" src="Images/Detail.final.img2.png" alt="Quest UI - New Quests timer state" class="mock-img">
+          <img loading="lazy" src="Images/Outro.quest.card.png" alt="Outro Screen - You Won with Tap to Claim feedback" class="mock-img">
+          <img loading="lazy" src="Images/Quest.icon.HS.png" alt="Home Screen - Quest icon with red jewel notification badge" class="mock-img">
+          <img loading="lazy" src="Images/Detail.quest.icon.png" alt="Reward Grant - Gift box animation screen" class="mock-img">
+          <img loading="lazy" src="Images/Detail.quest.outro.png" alt="Weekly Progress - Plant state updated, milestones reached" class="mock-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Reward Grant Flow -->
+    <!-- ============================================================ -->
+    <section class="reward-flow" id="reward-flow">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">Reward Grant Flow</h2>
+        </div>
+
+        <div class="reward-steps reveal">
+          <div class="reward-step">
+            <h4 class="reward-step__title">Progress Bar Updates</h4>
+            <p class="reward-step__desc">Currency flies to Weekly Progress Bar after tap on 'Claim'. Quest Card state changes to 'completed' state.</p>
+          </div>
+          <div class="reward-step">
+            <h4 class="reward-step__title">Plant State Change</h4>
+            <p class="reward-step__desc">Plant state updated with sheen/shake animations on milestone and/or daily reward if they are achieved.</p>
+          </div>
+          <div class="reward-step">
+            <h4 class="reward-step__title">Milestone Reward Grant</h4>
+            <p class="reward-step__desc">Reward grant starts after plant state is updated. Gift Box animation &mdash; reward grant screen same as DC grant.</p>
+          </div>
+          <div class="reward-step">
+            <h4 class="reward-step__title">Milestone Update</h4>
+            <p class="reward-step__desc">Gift box in weekly bar replaced with 'tick'. Target in holder updated.</p>
+          </div>
+          <div class="reward-step">
+            <h4 class="reward-step__title">Daily Reward Grant</h4>
+            <p class="reward-step__desc">Daily reward animation &mdash; fly like GT grant. Timer for Today's Tasks changed. Tick mark appears in place of Daily reward.</p>
+          </div>
+          <div class="reward-step">
+            <h4 class="reward-step__title">Completion</h4>
+            <p class="reward-step__desc">Daily reward progress updated. All interactions are disabled after tap on 'Claim' till grant sequence is over.</p>
+          </div>
+        </div>
+
+        <div class="reward-flow-visual reveal mt-xl">
+          <img loading="lazy" src="Images/Detail.quest.icon.HS.png" alt="Reward flow - complete grant sequence walkthrough">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Final Impact -->
+    <!-- ============================================================ -->
+    <section class="impact" id="impact">
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label"><span class="section-number">08</span>Results</p>
+          <h2 class="section-title">Final Impact</h2>
+        </div>
+
+        <div class="impact__metrics reveal">
+          <div class="impact-card">
+            <div class="impact-card__number">6%</div>
+            <div class="impact-card__label">Level View Increase</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-card__number">5%</div>
+            <div class="impact-card__label">D7 Retention</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-card__number">2%</div>
+            <div class="impact-card__label">Session Time</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION: Learnings -->
+    <!-- ============================================================ -->
+    <section class="learnings" id="learnings">
+      <div class="container">
+        <div class="reveal">
+          <h2 class="section-title">Learnings</h2>
+          <p class="learnings__text">
+            Learned different types of quest &amp; how different reward systems drive different intent. Strengthened my collaboration skills. Strengthened my ability to convert data into meaningful design decisions.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- SECTION: Footer -->
+  <!-- ============================================================ -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <!-- CTA Section -->
+      <div class="footer__cta-section reveal">
+        <h2 class="footer__cta-title">Let's work together</h2>
+        <p class="footer__cta-text">I'm currently open to new opportunities. If you're looking for a product designer who thinks deeply about user problems, let's connect.</p>
+        <div class="footer__cta-buttons">
+          <a href="mailto:gbabarogic@gmail.com" class="footer__cta-btn footer__cta-btn--primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+            Get in Touch
+          </a>
+          <a href="https://www.linkedin.com/in/babarogic/" target="_blank" rel="noopener" class="footer__cta-btn footer__cta-btn--secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__divider"></div>
+
+      <!-- Next Project CTA -->
+      <div class="footer__next-project">
+        <p class="footer__next-label">Next Case Study</p>
+        <a href="#" class="footer__next-link">
+          <span>Coming Soon</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="footer__divider"></div>
+
+      <!-- Footer Bottom -->
+      <div class="footer__bottom">
+        <div class="footer__brand">
+          <span class="footer__logo">GK</span>
+          <div class="footer__brand-text">
+            <p class="footer__name">Gurleen Kaur</p>
+            <p class="footer__role">Product Designer</p>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <a href="../../index.html">Portfolio</a>
+          <a href="https://www.linkedin.com/in/babarogic/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:gbabarogic@gmail.com">Email</a>
+        </div>
+      </div>
+
+      <p class="footer__copyright">© 2025 Gurleen Kaur. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Image Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" aria-label="Close lightbox">&times;</button>
+    <img class="lightbox__img" id="lightbox-img" src="" alt="">
+    <p class="lightbox__caption" id="lightbox-caption"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
