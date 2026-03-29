@@ -318,180 +318,232 @@
 
         /* ===== HOBBIES / WHEN I'M NOT DESIGNING ===== */
         .hobbies-section {
-            padding: 120px 0 140px;
+            padding: 100px 0 120px;
             overflow: hidden;
         }
 
-        .hobbies-collage {
-            position: relative;
-            width: 100%;
-            max-width: 1100px;
-            height: 700px;
+        .hobbies-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hobbies-header h2 {
+            font-size: 42px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .hobbies-header h2 span {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hobbies-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 500px;
             margin: 0 auto;
         }
 
-        /* Center heading inside collage */
-        .hobbies-title {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 5;
-            text-align: center;
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.6s ease-out;
-        }
-
-        .hobbies-title.animate-in {
-            opacity: 1;
-        }
-
-        .hobbies-title h2 {
-            font-size: 46px;
-            font-weight: 400;
-            color: var(--text-primary);
-            line-height: 1.2;
-            text-shadow: 0 2px 20px rgba(249, 248, 245, 0.9);
-        }
-
-        .hobbies-title h2 em {
-            font-weight: 700;
-            font-style: italic;
+        /* Bento Grid Layout */
+        .hobbies-bento {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 280px);
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         .hobby-card {
-            position: absolute;
-            border-radius: 16px;
+            position: relative;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-            background: #fff;
-            cursor: default;
-            will-change: transform, opacity;
-
-            /* Start state */
+            cursor: pointer;
             opacity: 0;
-            transform: var(--end-transform) translateY(30px) scale(0.95);
+            transform: translateY(40px) scale(0.95);
             transition: none;
         }
 
         .hobby-card.animate-in {
             opacity: 1;
-            transform: var(--end-transform);
-            transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                        transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(0) scale(1);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .hobby-card.hover-ready {
-            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                        box-shadow 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.4s ease;
         }
 
         .hobby-card.hover-ready:hover {
-            transform: var(--end-transform) scale(1.05) translateY(-4px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
-            z-index: 10;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
         }
 
-        .hobby-card img {
+        .hobby-card.hover-ready:hover .hobby-image {
+            transform: scale(1.1);
+        }
+
+        .hobby-card.hover-ready:hover .hobby-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .hobby-card.hover-ready:hover .hobby-overlay {
+            opacity: 1;
+        }
+
+        /* Card sizes */
+        .hobby-card:nth-child(1) { grid-column: span 2; }
+        .hobby-card:nth-child(2) { grid-column: span 1; }
+        .hobby-card:nth-child(3) { grid-column: span 1; }
+        .hobby-card:nth-child(4) { grid-column: span 1; }
+        .hobby-card:nth-child(5) { grid-column: span 2; }
+        .hobby-card:nth-child(6) { grid-column: span 1; }
+
+        .hobby-image {
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .hobby-label {
+        .hobby-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, 
+                rgba(0,0,0,0) 0%, 
+                rgba(0,0,0,0.1) 50%,
+                rgba(0,0,0,0.5) 100%);
+            opacity: 0.8;
+            transition: opacity 0.4s ease;
+        }
+
+        .hobby-content {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 12px 16px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.55));
+            padding: 28px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            z-index: 2;
+        }
+
+        .hobby-info h3 {
+            font-size: 22px;
+            font-weight: 600;
             color: #fff;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hobby-info p {
             font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.02em;
+            color: rgba(255,255,255,0.85);
+            max-width: 280px;
+            line-height: 1.5;
         }
 
-        /* Card 1 - Podcasts: top-left */
-        .hobby-card:nth-child(2) {
-            width: 230px; height: 270px;
-            top: 0; left: 160px;
-            --end-transform: rotate(-4deg);
+        .hobby-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Card 2 - Cooking: top-right */
-        .hobby-card:nth-child(3) {
-            width: 230px; height: 260px;
-            top: 0; right: 160px;
-            --end-transform: rotate(5deg);
+        /* Featured card (first one - large) */
+        .hobby-card.featured {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
-        /* Card 3 - My Photo: middle-left */
-        .hobby-card:nth-child(4) {
-            width: 230px; height: 280px;
-            top: 50%; left: 0;
-            margin-top: -140px;
-            --end-transform: rotate(4deg);
+        .hobby-card.featured .hobby-image {
+            opacity: 0.85;
+            mix-blend-mode: overlay;
         }
 
-        /* Card 4 - Travelling: middle-right */
-        .hobby-card:nth-child(5) {
-            width: 230px; height: 280px;
-            top: 50%; right: 0;
-            margin-top: -140px;
-            --end-transform: rotate(-5deg);
+        .hobby-card.featured .hobby-overlay {
+            background: linear-gradient(180deg, 
+                rgba(102, 126, 234, 0.3) 0%, 
+                rgba(118, 75, 162, 0.6) 100%);
         }
 
-        /* Card 5 - Badminton: bottom-left */
-        .hobby-card:nth-child(6) {
-            width: 230px; height: 260px;
-            bottom: 0; left: 160px;
-            --end-transform: rotate(3deg);
+        /* Accent colors for different cards */
+        .hobby-card:nth-child(2) { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .hobby-card:nth-child(3) { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .hobby-card:nth-child(4) { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .hobby-card:nth-child(5) { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .hobby-card:nth-child(6) { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+
+        /* Floating decorative elements */
+        .hobby-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
         }
 
-        /* Card 6 - Writing: bottom-right */
-        .hobby-card:nth-child(7) {
-            width: 230px; height: 260px;
-            bottom: 0; right: 160px;
-            --end-transform: rotate(-4deg);
-        }
-
-        @media (max-width: 768px) {
-            .hobbies-collage {
-                height: 900px;
-                max-width: 400px;
+        @media (max-width: 900px) {
+            .hobbies-bento {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 220px);
             }
+            .hobby-card:nth-child(1) { grid-column: span 2; }
+            .hobby-card:nth-child(2) { grid-column: span 1; }
+            .hobby-card:nth-child(3) { grid-column: span 1; }
+            .hobby-card:nth-child(4) { grid-column: span 1; }
+            .hobby-card:nth-child(5) { grid-column: span 1; }
+            .hobby-card:nth-child(6) { grid-column: span 2; }
+        }
 
-            .hobbies-title h2 {
-                font-size: 28px;
+        @media (max-width: 600px) {
+            .hobbies-header h2 {
+                font-size: 32px;
             }
-
-            .hobby-card:nth-child(2) {
-                width: 160px; height: 190px;
-                top: 0; left: 30px;
+            .hobbies-bento {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 200px);
+                gap: 16px;
             }
-            .hobby-card:nth-child(3) {
-                width: 160px; height: 185px;
-                top: 0; right: 30px; left: auto;
-            }
-            .hobby-card:nth-child(4) {
-                width: 160px; height: 200px;
-                top: 50%; left: 5px;
-                margin-top: -100px;
-            }
-            .hobby-card:nth-child(5) {
-                width: 160px; height: 200px;
-                top: 50%; right: 5px; left: auto;
-                margin-top: -100px;
-            }
+            .hobby-card:nth-child(1),
+            .hobby-card:nth-child(2),
+            .hobby-card:nth-child(3),
+            .hobby-card:nth-child(4),
+            .hobby-card:nth-child(5),
             .hobby-card:nth-child(6) {
-                width: 160px; height: 190px;
-                bottom: 0; left: 30px;
+                grid-column: span 1;
             }
-            .hobby-card:nth-child(7) {
-                width: 160px; height: 185px;
-                bottom: 0; right: 30px; left: auto;
+            .hobby-content {
+                padding: 20px;
+            }
+            .hobby-info h3 {
+                font-size: 18px;
+            }
+            .hobby-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 24px;
             }
         }
 
@@ -1373,6 +1425,7 @@
             <ul class="nav-links">
                 <li><a href="#work">Work</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Resume</a></li>
             </ul>
         </div>
     </nav>
@@ -1595,40 +1648,88 @@
     <!-- WHEN I'M NOT DESIGNING -->
     <section class="hobbies-section">
         <div class="container">
-            <div class="hobbies-collage" id="hobbies-collage">
-                <!-- Center Title -->
-                <div class="hobbies-title" id="hobbies-title">
-                    <h2>When I'm not <em>designing</em></h2>
+            <div class="hobbies-header">
+                <h2>Things I <span>Love</span> Doing</h2>
+                <p>When I'm not pushing pixels, you'll find me...</p>
+            </div>
+            
+            <div class="hobbies-bento" id="hobbies-bento">
+                <!-- 1: Being Me (Featured - Large) -->
+                <div class="hobby-card featured">
+                    <img src="images/gurleen-cover.jpg" alt="Being me" class="hobby-image">
+                    <div class="hobby-overlay"></div>
+                    <div class="hobby-content">
+                        <div class="hobby-info">
+                            <h3>Being Myself</h3>
+                            <p>Embracing creativity, curiosity, and the joy of learning something new every day.</p>
+                        </div>
+                        <div class="hobby-icon">✨</div>
+                    </div>
                 </div>
-                <!-- 1: Podcasts -->
+
+                <!-- 2: Podcasts -->
                 <div class="hobby-card">
-                    <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400&h=500&fit=crop" alt="Listening to podcasts">
-                    <div class="hobby-label">Listening to podcasts 🎧</div>
+                    <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&h=600&fit=crop" alt="Listening to podcasts" class="hobby-image">
+                    <div class="hobby-overlay"></div>
+                    <div class="hobby-content">
+                        <div class="hobby-info">
+                            <h3>Podcasts</h3>
+                            <p>Design talks & true crime</p>
+                        </div>
+                        <div class="hobby-icon">🎧</div>
+                    </div>
                 </div>
-                <!-- 2: Cooking -->
+
+                <!-- 3: Cooking -->
                 <div class="hobby-card">
-                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=500&fit=crop" alt="Cooking">
-                    <div class="hobby-label">Cooking 🍳</div>
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=600&fit=crop" alt="Cooking" class="hobby-image">
+                    <div class="hobby-overlay"></div>
+                    <div class="hobby-content">
+                        <div class="hobby-info">
+                            <h3>Cooking</h3>
+                            <p>Experimental recipes</p>
+                        </div>
+                        <div class="hobby-icon">🍳</div>
+                    </div>
                 </div>
-                <!-- 3: My Photo -->
+
+                <!-- 4: Badminton -->
                 <div class="hobby-card">
-                    <img src="images/gurleen-cover.jpg" alt="Me">
-                    <div class="hobby-label">Being me ✌️</div>
+                    <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=600&h=600&fit=crop" alt="Badminton" class="hobby-image">
+                    <div class="hobby-overlay"></div>
+                    <div class="hobby-content">
+                        <div class="hobby-info">
+                            <h3>Badminton</h3>
+                            <p>Staying active</p>
+                        </div>
+                        <div class="hobby-icon">🏸</div>
+                    </div>
                 </div>
-                <!-- 4: Travelling -->
+
+                <!-- 5: Travelling (Large) -->
                 <div class="hobby-card">
-                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&h=400&fit=crop" alt="Travelling">
-                    <div class="hobby-label">Travelling ✈️</div>
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&h=600&fit=crop" alt="Travelling" class="hobby-image">
+                    <div class="hobby-overlay"></div>
+                    <div class="hobby-content">
+                        <div class="hobby-info">
+                            <h3>Travelling</h3>
+                            <p>Exploring new places, cultures, and finding design inspiration in the world around me.</p>
+                        </div>
+                        <div class="hobby-icon">✈️</div>
+                    </div>
                 </div>
-                <!-- 5: Badminton -->
-                <div class="hobby-card">
-                    <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400&h=500&fit=crop" alt="Badminton">
-                    <div class="hobby-label">Badminton 🏸</div>
-                </div>
+
                 <!-- 6: Writing -->
                 <div class="hobby-card">
-                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=450&fit=crop" alt="Writing">
-                    <div class="hobby-label">Writing ✍️</div>
+                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&h=600&fit=crop" alt="Writing" class="hobby-image">
+                    <div class="hobby-overlay"></div>
+                    <div class="hobby-content">
+                        <div class="hobby-info">
+                            <h3>Writing</h3>
+                            <p>Thoughts & stories</p>
+                        </div>
+                        <div class="hobby-icon">✍️</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1642,21 +1743,21 @@
             
             <div class="footer-icons">
                 <!-- LinkedIn Icon -->
-                <a href="https://www.linkedin.com/in/babarogic/" class="footer-icon-link" target="_blank" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/gurleenbedi1/" class="footer-icon-link" target="_blank" aria-label="LinkedIn">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
                 </a>
                 
                 <!-- Email Icon -->
-                <a href="mailto:gbabarogic@gmail.com" class="footer-icon-link" aria-label="Email">
+                <a href="mailto:gurleenbedi9888@gmail.com" class="footer-icon-link" aria-label="Email">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
                 </a>
                 
                 <!-- Phone Icon -->
-                <a href="tel:+1234567890" class="footer-icon-link" aria-label="Phone">
+                <a href="tel:+916283501490" class="footer-icon-link" aria-label="Phone">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                     </svg>
@@ -1918,47 +2019,31 @@
         });
 
         // ===== HOBBIES SCROLL-TRIGGER =====
-        const collage = document.getElementById('hobbies-collage');
-        const hobbyCards = collage.querySelectorAll('.hobby-card');
-        const hobbiesTitle = document.getElementById('hobbies-title');
+        const hobbiesBento = document.getElementById('hobbies-bento');
+        const hobbyCards = hobbiesBento.querySelectorAll('.hobby-card');
         let hobbiesRevealed = false;
-
-        // Define stagger order: title first, then cards from center outward
-        const staggerOrder = [3, 4, 2, 5, 1, 6]; // indexes for cards (0-indexed from hobbyCards)
 
         function checkHobbies() {
             if (hobbiesRevealed) return;
-            const rect = collage.getBoundingClientRect();
-            const trigger = window.innerHeight * 0.8;
+            const rect = hobbiesBento.getBoundingClientRect();
+            const trigger = window.innerHeight * 0.85;
 
             if (rect.top < trigger) {
                 hobbiesRevealed = true;
 
-                // Animate title first
-                requestAnimationFrame(() => {
-                    hobbiesTitle.classList.add('animate-in');
-                });
-
                 // Stagger cards with smooth timing
-                const baseDelay = 150;
-                const staggerDelay = 80;
-
                 hobbyCards.forEach((card, i) => {
-                    const orderIndex = staggerOrder.indexOf(i + 1);
-                    const delay = baseDelay + (orderIndex !== -1 ? orderIndex : i) * staggerDelay;
-                    
                     setTimeout(() => {
                         requestAnimationFrame(() => {
                             card.classList.add('animate-in');
                         });
-                    }, delay);
+                    }, i * 100);
                 });
 
                 // Enable hover effects after animations complete
-                const totalTime = baseDelay + hobbyCards.length * staggerDelay + 600;
                 setTimeout(() => {
                     hobbyCards.forEach(card => card.classList.add('hover-ready'));
-                }, totalTime);
+                }, hobbyCards.length * 100 + 700);
             }
         }
 
