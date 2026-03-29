@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puzzle Screen UX Optimization | UX Case Study</title>
+  <meta name="description" content="UX Case Study: How micro-level UI refinements on the puzzle screen of a casual mobile game drove 4% session length increase and 7-8% ad views uplift.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================================ -->
+  <!-- NAVIGATION -->
+  <!-- ============================================================ -->
+  <nav class="site-nav" id="site-nav">
+    <div class="site-nav__inner">
+      <a href="../../index.html" class="site-nav__back" id="back-to-works" aria-label="Back to works">
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 1L1 6L6 11" stroke="#242424" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="1.5" y1="6" x2="15" y2="6" stroke="#242424" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>Back to works</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="site-nav__links" id="nav-links">
+        <li><a href="#hero">Introduction</a></li>
+        <li><a href="#context">Overview</a></li>
+        <li><a href="#problems">Problem Space</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#solutions">Objective</a></li>
+        <li><a href="#final-design">Final Solution</a></li>
+        <li><a href="#impact">Impact</a></li>
+      </ul>
+    </div>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-track">
+      <div class="scroll-progress-bar" id="scroll-progress"></div>
+    </div>
+  </nav>
+
+  <!-- ============================================================ -->
+  <!-- AMBIENT BACKGROUND -->
+  <!-- ============================================================ -->
+  <div class="noise-overlay"></div>
+  <div class="glow-container">
+    <div class="glow-orb blob-primary"></div>
+    <div class="glow-orb blob-secondary"></div>
+    <div class="glow-orb blob-tertiary"></div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- SECTION: Hero -->
+  <!-- ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <h1 class="hero__title reveal reveal--fade-up">
+          Redesigning the<br>
+          Puzzle screen Experience
+        </h1>
+        <div class="hero__meta reveal reveal--fade-up reveal--delay-1">
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">TIMELINE</span>
+            <span class="hero__meta-value">2-Week Sprint</span>
+          </div>
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">PLATFORM</span>
+            <span class="hero__meta-value">Mobile (iOS &amp; Android)</span>
+          </div>
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">ROLE</span>
+            <span class="hero__meta-value">Product designer</span>
+          </div>
+        </div>
+        <h2 class="hero__subtitle-heading reveal reveal--fade-up reveal--delay-2">
+          Optimisation for better clarity, feedback, and interaction
+        </h2>
+        <p class="hero__subtitle reveal reveal--fade-up reveal--delay-2">
+          A UX-driven redesign of the core gameplay screen focused on improving visual hierarchy, interaction clarity, and player feedback loops.
+        </p>
+        <div class="hero__metrics reveal reveal--fade-up reveal--delay-3">
+          <div class="hero__metric-card">
+            <div class="hero__metric-value">
+              5%
+              <svg class="hero__metric-arrow" width="41" height="23" viewBox="0 0 41 23" fill="none">
+                <path d="M2 21L14 9L22 15L39 2" stroke="#2E7D32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M30 2H39V11" stroke="#2E7D32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="hero__metric-label">Session length</div>
+          </div>
+          <div class="hero__metric-card">
+            <div class="hero__metric-value">
+              7%
+              <svg class="hero__metric-arrow" width="41" height="23" viewBox="0 0 41 23" fill="none">
+                <path d="M2 21L14 9L22 15L39 2" stroke="#2E7D32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M30 2H39V11" stroke="#2E7D32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="hero__metric-label">Ad view</div>
+          </div>
+          <div class="hero__metric-card">
+            <div class="hero__metric-value">
+              6.4%
+              <svg class="hero__metric-arrow" width="41" height="23" viewBox="0 0 41 23" fill="none">
+                <path d="M2 21L14 9L22 15L39 2" stroke="#2E7D32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M30 2H39V11" stroke="#2E7D32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="hero__metric-label">Engagement</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__mock">
+        <p class="hero__mock-placeholder">Space for final updated mocks</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION: Setting the Scene -->
+  <!-- ============================================================ -->
+  <section class="section" id="context">
+    <div class="scene-section__inner">
+      <p class="cs-section-label reveal reveal--fade-up">SETTING THE SCENE</p>
+      <h2 class="cs-section-title reveal reveal--fade-up">The puzzle screen is where players spend most of their time.</h2>
+      <div class="scene-design-brief reveal reveal--fade-up">
+        <p class="scene-design-brief__label">DESIGN BRIEF</p>
+        <p class="scene-design-brief__quote">'How can we enhance the clarity, consistency &amp; usability of key interactive elements on the game board, ensuring players can understand &amp; engage effortlessly? Envision a UI that guides naturally through the game journey.'</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION: Problem Space -->
+  <!-- ============================================================ -->
+  <section class="section section--alt" id="problems">
+    <div class="ps-section__inner">
+      <div class="ps-section__header reveal reveal--fade-up">
+        <p class="cs-section-label">PROBLEM SPACE</p>
+        <h2 class="cs-section-title">Every friction point on the puzzle screen multiplies</h2>
+        <p class="cs-section-subtitle">In order to know the existing friction points on the screen &amp; area of opportunities which can help to enhance the gameplay experience, the puzzle needed a systematic UX audit.</p>
+      </div>
+
+      <div class="ps-problem-grid">
+        <div class="problem-card reveal reveal--fade-up">
+          <div class="problem-card__number">01</div>
+          <h3 class="problem-card__title">Readability &amp; Tap Accuracy</h3>
+          <p class="problem-card__text">Tiles were small, causing mistaps &mdash; especially for older players. The rack was undersized, making the &ldquo;snap into place&rdquo; feel weak. Multiple daily support tickets requesting bigger tiles.</p>
+          <div class="problem-card__tags">
+            <span class="tag">Small tiles</span>
+            <span class="tag">Mistaps</span>
+            <span class="tag">Accessibility</span>
+          </div>
+        </div>
+
+        <div class="problem-card reveal reveal--fade-up reveal--delay-1">
+          <div class="problem-card__number">02</div>
+          <h3 class="problem-card__title">Visual Hierarchy Breakdown</h3>
+          <p class="problem-card__text">Power-ups blended with the tiles (both square). The rack lacked distinction from the board. Jewel notifs were oversized, dominating the icon space.</p>
+          <div class="problem-card__tags">
+            <span class="tag">No differentiation</span>
+            <span class="tag">Unclear hierarchy</span>
+            <span class="tag">Visual noise</span>
+          </div>
+        </div>
+
+        <div class="problem-card reveal reveal--fade-up reveal--delay-2">
+          <div class="problem-card__number">03</div>
+          <h3 class="problem-card__title">Lack of Gameplay Feedback</h3>
+          <p class="problem-card__text">No gratification on making matches. No rack fill feedback. Silent interactions made the game feel unresponsive. Players had no sense on momentum or progress during active gameplay.</p>
+          <div class="problem-card__tags">
+            <span class="tag">No feedback</span>
+            <span class="tag">Silent UI</span>
+            <span class="tag">Low engagement</span>
+          </div>
+        </div>
+
+        <div class="problem-card reveal reveal--fade-up reveal--delay-3">
+          <div class="problem-card__number">04</div>
+          <h3 class="problem-card__title">UI Inconsistency</h3>
+          <p class="problem-card__text">Extra slot looked nothing like other powerups despite functioning as one. The w2e icon was visually inconsistent with the home screen version. Too many similar tones of same colour family.</p>
+          <div class="problem-card__tags">
+            <span class="tag">Inconsistent elements</span>
+            <span class="tag">Visual clutter</span>
+            <span class="tag">Disjointed palette</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION: Research & UX Reasoning -->
+  <!-- ============================================================ -->
+  <section class="section" id="research">
+    <div class="section__inner">
+      <div class="section__header reveal reveal--fade-up">
+        <p class="section__label">Research &amp; UX Reasoning</p>
+        <h2 class="section__title">Every change backed by a design principle</h2>
+        <p class="section__subtitle">I conducted competitive analysis across 6 scaling tile-match games &mdash; Tile Explorer, Tile Club, Tile Family, Triple Tile, Match Factory, and Dream Blast &mdash; to benchmark UI patterns and validate design decisions.</p>
+      </div>
+
+      <!-- Competitive Analysis -->
+      <div class="comp-analysis reveal reveal--fade-up">
+        <h3 class="subsection-title">Key findings from competitive analysis</h3>
+        <div class="comp-grid">
+          <div class="comp-finding">
+            <div class="comp-finding__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </div>
+            <p>All competitors use <strong>circular power-up holders</strong> to differentiate from square tiles</p>
+          </div>
+          <div class="comp-finding">
+            <div class="comp-finding__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </div>
+            <p>Competitors have <strong>neutral-toned power-ups</strong> keeping screen visually light</p>
+          </div>
+          <div class="comp-finding">
+            <div class="comp-finding__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </div>
+            <p><strong>Very small jewel notifs</strong> positioned at bottom-right, secondary to the power-up icon itself</p>
+          </div>
+          <div class="comp-finding">
+            <div class="comp-finding__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </div>
+            <p>Extra slot UI is <strong>visually similar to other power-ups</strong> (law of uniform connectedness)</p>
+          </div>
+          <div class="comp-finding">
+            <div class="comp-finding__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </div>
+            <p>Competitor screens are <strong>optimised for power-up discovery &amp; usage</strong></p>
+          </div>
+          <div class="comp-finding">
+            <div class="comp-finding__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </div>
+            <p>Prominent rack visibility with <strong>rack holders or distinct borders</strong> for clear tile distinction</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- UX Principles -->
+      <div class="principles-grid">
+        <div class="principle-card reveal reveal--fade-up">
+          <div class="principle-card__header">
+            <span class="principle-card__badge">Fitts's Law</span>
+          </div>
+          <p class="principle-card__text">Bigger tiles = fewer mistaps. Power-ups closer to the board = improved discoverability &amp; usage. Increased tap target sizes across all interactive elements.</p>
+          <p class="principle-card__application">Applied to: Tile size, power-up size &amp; positioning</p>
+        </div>
+
+        <div class="principle-card reveal reveal--fade-up reveal--delay-1">
+          <div class="principle-card__header">
+            <span class="principle-card__badge">Jakob's Law</span>
+          </div>
+          <p class="principle-card__text">Players are playing other tile-match games with bigger tiles and find those games easier to play. Our UI should match the mental models players already have.</p>
+          <p class="principle-card__application">Applied to: Tile size, overall layout</p>
+        </div>
+
+        <div class="principle-card reveal reveal--fade-up reveal--delay-2">
+          <div class="principle-card__header">
+            <span class="principle-card__badge">Recognition over Recall</span>
+          </div>
+          <p class="principle-card__text">The w2e icon on the puzzle screen was visually different from the homescreen version. Players shouldn't have to remember what an icon does — it should be instantly recognisable.</p>
+          <p class="principle-card__application">Applied to: W2E icon redesign</p>
+        </div>
+
+        <div class="principle-card reveal reveal--fade-up">
+          <div class="principle-card__header">
+            <span class="principle-card__badge">Law of Uniform Connectedness</span>
+          </div>
+          <p class="principle-card__text">The Extra Slot functionally acts as a power-up, but its visual treatment was completely different. Elements that share a function should share a visual language.</p>
+          <p class="principle-card__application">Applied to: Extra slot, power-up consistency</p>
+        </div>
+
+        <div class="principle-card reveal reveal--fade-up reveal--delay-1">
+          <div class="principle-card__header">
+            <span class="principle-card__badge">Gestalt &mdash; Similarity</span>
+          </div>
+          <p class="principle-card__text">Almost all elements on the board were squarish — tiles and power-ups were indistinguishable. Circular power-ups vs. square tiles creates clear visual grouping.</p>
+          <p class="principle-card__application">Applied to: Circular power-up holders</p>
+        </div>
+
+        <div class="principle-card reveal reveal--fade-up reveal--delay-2">
+          <div class="principle-card__header">
+            <span class="principle-card__badge">Feedback Heuristic (Nielsen)</span>
+          </div>
+          <p class="principle-card__text">Every action deserves a reaction. Matches had no acknowledgement, rack fills were silent. Adding gratification text and rack fill feedback creates a sense of momentum.</p>
+          <p class="principle-card__application">Applied to: Match gratification, rack fill feedback</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION: Solutions Deep Dive -->
+  <!-- ============================================================ -->
+  <section class="section section--alt" id="solutions">
+    <div class="section__inner">
+      <div class="section__header reveal reveal--fade-up">
+        <p class="section__label">The Change &amp; UX Reasoning</p>
+        <h2 class="section__title">Every change backed by design principles</h2>
+        <p class="section__subtitle">Also conducted competitive analysis of the top scaling games in tile match genre to benchmark UI patterns and validate design decisions</p>
+      </div>
+
+      <!-- ===== Solution A: Tile & Rack System ===== -->
+      <div class="solution-block" id="solution-tiles">
+        <div class="solution-block__header reveal reveal--fade-up">
+          <span class="solution-block__number">A</span>
+          <div>
+            <h3 class="solution-block__title">Tile &amp; Rack System</h3>
+            <p class="solution-block__desc">Making the core gameplay elements bigger, clearer, and more intuitive.</p>
+          </div>
+        </div>
+
+        <!-- Change 1: Bigger Tile Size -->
+        <div class="change-item reveal reveal--fade-up">
+          <div class="change-item__content">
+            <h4 class="change-item__title">Bigger Tile Size</h4>
+            <p class="change-item__text">Shifted from square to slightly <strong>rectangular tiles</strong> to increase tile size within the existing board constraints, without altering the grid structure.</p>
+            <div class="change-item__reasoning">
+              <span class="reasoning-label">WHY THIS WORKS</span>
+              <ul class="reasoning-list">
+                <li>Larger tiles &rarr; easier to scan, recognise, &amp; decide which match to make.</li>
+                <li>Reduce &rarr; mistap, especially for older age group players.</li>
+                <li>Jakob&rsquo;s Law &rarr; players are playing other games with bigger tile sizes.</li>
+                <li>Fewer mistaps &rarr; less frustration, which can positively impact session length and return rate.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="change-item__visual">
+            <div class="before-after">
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--before">Before image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/tiles-before.png" alt="Smaller square tiles" loading="lazy">
+                </div>
+              </div>
+              <div class="before-after__arrow">
+                <svg width="81" height="14" viewBox="0 0 81 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="7" x2="72" y2="7" stroke="#676767" stroke-width="1.5"/><path d="M74 1L80 7L74 13" stroke="#676767" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--after">After image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/tiles-after.png" alt="Bigger rectangular tiles" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Change 2: Rack Size & Tint -->
+        <div class="change-item change-item--reverse reveal reveal--fade-up">
+          <div class="change-item__content">
+            <h4 class="change-item__title">Bigger Rack Size + Tint Behind Rack</h4>
+            <p class="change-item__text">Increased the rack size to enhance the feel of the tiles &ldquo;snapping&rdquo; into place &mdash; simulating real world interactions. Added a tint behind the rack for visual distinction of empty slots.</p>
+            <div class="change-item__reasoning">
+              <span class="reasoning-label">WHY THIS WORKS</span>
+              <ul class="reasoning-list">
+                <li>Stronger feedback loop &rarr; larger rack enhances the perceived &ldquo;snap,&rdquo; making interactions feel more satisfying and responsive.</li>
+                <li>Improved visibility &rarr; Background tint helps players instantly identify available slots, reducing cognitive load.</li>
+                <li>Real-world affordance &rarr; Mimics the tactile behaviour of physical tile games, making interactions feel more intuitive.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="change-item__visual">
+            <div class="before-after">
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--before">Before image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/rack-size-before.png" alt="Smaller rack without tint" loading="lazy">
+                </div>
+              </div>
+              <div class="before-after__arrow">
+                <svg width="81" height="14" viewBox="0 0 81 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="7" x2="72" y2="7" stroke="#676767" stroke-width="1.5"/><path d="M74 1L80 7L74 13" stroke="#676767" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--after">After image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/rack-size-after.png" alt="Bigger rack with tint" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Change 3: Rack Position -->
+        <div class="change-item reveal reveal--fade-up">
+          <div class="change-item__content">
+            <h4 class="change-item__title">Rack Moved Above the Tile Set</h4>
+            <p class="change-item__text">Repositioned the rack from below the board to above it, establishing a natural top-down visual hierarchy: Rack &rarr; Board &rarr; Controls.</p>
+            <div class="change-item__reasoning">
+              <span class="reasoning-label">WHY THIS WORKS</span>
+              <ul class="reasoning-list">
+                <li>Rack at top becomes the first focal point, encouraging more calculative decisions before making a match.</li>
+                <li>Give a clear visual hierarchy: &ldquo;what I have &rarr; what actions I can take.&rdquo;</li>
+                <li>Aligns with natural eye movement (top-down scanning), creating a smoother, more intuitive gameplay flow.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="change-item__visual">
+            <div class="before-after">
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--before">Before image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/rack-position-before.png" alt="Rack below the board" loading="lazy">
+                </div>
+              </div>
+              <div class="before-after__arrow">
+                <svg width="81" height="14" viewBox="0 0 81 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="7" x2="72" y2="7" stroke="#676767" stroke-width="1.5"/><path d="M74 1L80 7L74 13" stroke="#676767" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--after">After image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/rack-position-after.png" alt="Rack above the board" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Change 4: Rack Holder -->
+        <div class="change-item change-item--reverse reveal reveal--fade-up">
+          <div class="change-item__content">
+            <h4 class="change-item__title">Rack Holder Introduced</h4>
+            <p class="change-item__text">When tiles were placed on the rack, they fully covered the slot indicators, blurring the visual distinction between rack tiles and board tiles, especially in levels with greater vertical height and higher tile density.</p>
+            <div class="change-item__reasoning">
+              <span class="reasoning-label">WHY THIS WORKS</span>
+              <ul class="reasoning-list">
+                <li>Creates a sense of depth and containment, simulating the real-world feel of placing tiles into a physical tray rather than floating them on a flat surface.</li>
+                <li>Scales across complexity &rarr; Remains effective even in levels with higher vertical density.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="change-item__visual">
+            <div class="before-after">
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--before">Before image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/rack-holder-before.png" alt="Flat rack without holder" loading="lazy">
+                </div>
+              </div>
+              <div class="before-after__arrow">
+                <svg width="81" height="14" viewBox="0 0 81 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="7" x2="72" y2="7" stroke="#676767" stroke-width="1.5"/><path d="M74 1L80 7L74 13" stroke="#676767" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--after">After image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/rack-holder-after.png" alt="Rack with physical holder" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Solution B: Power-Up Redesign ===== -->
+      <div class="solution-block" id="solution-powerups">
+        <div class="solution-block__header reveal reveal--fade-up">
+          <span class="solution-block__number">B</span>
+          <div>
+            <h3 class="solution-block__title">Power-Up Redesign</h3>
+            <p class="solution-block__desc">Creating clear visual distinction between interactive and passive game elements.</p>
+          </div>
+        </div>
+
+        <!-- Change 5: Circular Holders -->
+        <div class="change-item reveal reveal--fade-up">
+          <div class="change-item__content">
+            <h4 class="change-item__title">Circular Power-Up Holders</h4>
+            <p class="change-item__text">Replaced squarish power-up holder with circular ones. Updated the colour scheme to align with the current game UI. Moved power-ups slightly higher for better anchoring.</p>
+            <div class="change-item__reasoning">
+              <span class="reasoning-label">WHY THIS WORKS</span>
+              <ul class="reasoning-list">
+                <li>Stronger visual differentiation &rarr; Circular shape clearly distinguishes power-ups from tile elements.</li>
+                <li>Faster recognition &rarr; Unique form factor enables instant identification during gameplay.</li>
+                <li>Improved spatial anchoring &rarr; Higher placement makes power-ups feel as persistent UI elements rather than board content, reinforcing their role as player tools.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="change-item__visual">
+            <div class="before-after">
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--before">Before image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/powerups-before.png" alt="Square power-up holders" loading="lazy">
+                </div>
+              </div>
+              <div class="before-after__arrow">
+                <svg width="81" height="14" viewBox="0 0 81 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="7" x2="72" y2="7" stroke="#676767" stroke-width="1.5"/><path d="M74 1L80 7L74 13" stroke="#676767" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--after">After image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/powerups-after.png" alt="Circular power-up holders" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Change 6: Extra Slot -->
+        <div class="change-item change-item--reverse reveal reveal--fade-up">
+          <div class="change-item__content">
+            <h4 class="change-item__title">Extra Slot Aligned with Power-Ups</h4>
+            <p class="change-item__text">The extra slot functionally acts as a power-up, yet its visual treatment was entirely inconsistent &mdash; a distinct purple-gold palette that felt disconnected from the rest of the UI.</p>
+            <div class="change-item__reasoning">
+              <span class="reasoning-label">WHY THIS WORKS</span>
+              <ul class="reasoning-list">
+                <li>Law of Uniform Connectedness &rarr; elements sharing a function should share visual language.</li>
+                <li>Reduced visual noise &rarr; Eliminates colour clashes with existing UI elements.</li>
+                <li>Better discoverability &rarr; Consistent styling helps players quickly identify it as part of the power-up system.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="change-item__visual">
+            <div class="before-after">
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--before">Before image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/extra-slot-before.png" alt="Mismatched extra slot design" loading="lazy">
+                </div>
+              </div>
+              <div class="before-after__arrow">
+                <svg width="81" height="14" viewBox="0 0 81 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="7" x2="72" y2="7" stroke="#676767" stroke-width="1.5"/><path d="M74 1L80 7L74 13" stroke="#676767" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--after">After image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/extra-slot-after.png" alt="Aligned extra slot design" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Change 7: Jewel Notifs -->
+        <div class="change-item reveal reveal--fade-up">
+          <div class="change-item__content">
+            <h4 class="change-item__title">Jewel Notification Refinement</h4>
+            <p class="change-item__text">Compared to competitor games, the jewel notification badges on our power-ups were noticeably larger and dominated the icon space. The badge is a secondary signal; it should inform, not overpower.</p>
+            <div class="change-item__reasoning">
+              <span class="reasoning-label">WHY THIS WORKS</span>
+              <ul class="reasoning-list">
+                <li>Improved visual hierarchy &rarr; Smaller badge size ensures the power-up remains the primary focus.</li>
+                <li>Better visibility &rarr; Red colour universally recognised as a notification indicator across platforms.</li>
+                <li>Clearer system states &rarr; Enhanced disabled (no-internet) state with improved iconography to communicate unavailability without ambiguity.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="change-item__visual">
+            <div class="before-after">
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--before">Before image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/jewel-before.png" alt="Oversized jewel notifications" loading="lazy">
+                </div>
+              </div>
+              <div class="before-after__arrow">
+                <svg width="81" height="14" viewBox="0 0 81 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="7" x2="72" y2="7" stroke="#676767" stroke-width="1.5"/><path d="M74 1L80 7L74 13" stroke="#676767" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--after">After image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/jewel-after.png" alt="Refined jewel notifications" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Change 8: Neutral Power-ups & Size -->
+        <div class="change-item change-item--reverse reveal reveal--fade-up">
+          <div class="change-item__content">
+            <h4 class="change-item__title">Neutral-Toned &amp; Bigger Power-Ups</h4>
+            <p class="change-item__text">Updated power-ups to neutral tones (on the game board) to differentiate them from multi-coloured tiles. Also increased power up size &amp; reduced gap between power-ups &amp; tiles.</p>
+            <div class="change-item__reasoning">
+              <span class="reasoning-label">WHY THIS WORKS</span>
+              <ul class="reasoning-list">
+                <li>Stronger visual separation &rarr; Neutral tones prevent competition with vibrant tiles, giving power-ups a distinct visual lane.</li>
+                <li>Improved discoverability &rarr; Increased size improves tap accuracy and makes power-ups feel like intentional, prominent tools.</li>
+                <li>Fitt&rsquo;s law &mdash; Reducing the gap between power-ups and tiles shortens the interaction distance, making power-ups feel naturally connected to the board.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="change-item__visual">
+            <div class="before-after">
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--before">Before image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/neutral-before.png" alt="Coloured power-ups" loading="lazy">
+                </div>
+              </div>
+              <div class="before-after__arrow">
+                <svg width="81" height="14" viewBox="0 0 81 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="7" x2="72" y2="7" stroke="#676767" stroke-width="1.5"/><path d="M74 1L80 7L74 13" stroke="#676767" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--after">After image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/neutral-after.png" alt="Neutral-toned power-ups" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Solution C: W2E Icon ===== -->
+      <div class="solution-block" id="solution-w2e">
+        <div class="solution-block__header reveal reveal--fade-up">
+          <span class="solution-block__number">C</span>
+          <div>
+            <h3 class="solution-block__title">W2E Icon Cleanup</h3>
+            <p class="solution-block__desc">Aligning the watch-to-earn icon with the rest of the UI for consistency and better conversions.</p>
+          </div>
+        </div>
+
+        <div class="change-item reveal reveal--fade-up">
+          <div class="change-item__content">
+            <h4 class="change-item__title">Icon Redesign &amp; &ldquo;Free&rdquo; Label</h4>
+            <p class="change-item__text">Aligning the watch-to-earn icon with the rest of the UI for consistency and better conversions.</p>
+            <div class="change-item__reasoning">
+              <span class="reasoning-label">WHY THIS WORKS</span>
+              <ul class="reasoning-list">
+                <li>Improved consistency &rarr; Aligning with the home screen icon strengthens recognition and reduces cognitive friction.</li>
+                <li>Higher conversion cues &rarr; Replacing &ldquo;+60 coins&rdquo; with &ldquo;Free&rdquo; leverages stronger motivational triggers.</li>
+                <li>Reduced visual noise &rarr; Fewer colour variations create a more balanced and less overwhelming toolbar.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="change-item__visual">
+            <div class="before-after">
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--before">Before image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/w2e-before.png" alt="Old w2e icon" loading="lazy">
+                </div>
+              </div>
+              <div class="before-after__arrow">
+                <svg width="81" height="14" viewBox="0 0 81 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="7" x2="72" y2="7" stroke="#676767" stroke-width="1.5"/><path d="M74 1L80 7L74 13" stroke="#676767" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--after">After image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/w2e-after.png" alt="Redesigned w2e icon" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Solution D: Gameplay Feedback ===== -->
+      <div class="solution-block" id="solution-feedback">
+        <div class="solution-block__header reveal reveal--fade-up">
+          <span class="solution-block__number">D</span>
+          <div>
+            <h3 class="solution-block__title">Gameplay Feedback</h3>
+            <p class="solution-block__desc">Turning a silent game board into a responsive, rewarding experience.</p>
+          </div>
+        </div>
+
+        <div class="change-item reveal reveal--fade-up">
+          <div class="change-item__content">
+            <h4 class="change-item__title">Match Gratification &amp; Rack Fill Feedback</h4>
+            <p class="change-item__text">Introduced celebratory text feedback (e.g., &ldquo;On a Roll&rdquo;, &ldquo;Awesome&rdquo;, &ldquo;Amazing&rdquo;) on successful matches and visual feedback when player reaches rack fill state for awareness. The board was repositioned slightly downward to accommodate these animations without UI overlap.</p>
+            <div class="change-item__reasoning">
+              <span class="reasoning-label">WHY THIS WORKS</span>
+              <ul class="reasoning-list">
+                <li>Immediate system feedback &rarr; Aligns with Nielsen&rsquo;s Feedback Heuristic, reinforcing that every action is acknowledged.</li>
+                <li>Emotional design layer &rarr; these moments of micro-delight &amp; awareness elevate the experience beyond pure puzzle mechanics, contributing to the overall personality and tone of the game.</li>
+                <li>Clear feedback visibility &rarr; Dedicated space ensures animations remain noticeable and unobstructed.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="change-item__visual">
+            <div class="before-after">
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--before">Before image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/feedback-before.png" alt="No gameplay feedback" loading="lazy">
+                </div>
+              </div>
+              <div class="before-after__arrow">
+                <svg width="81" height="14" viewBox="0 0 81 14" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="7" x2="72" y2="7" stroke="#676767" stroke-width="1.5"/><path d="M74 1L80 7L74 13" stroke="#676767" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="before-after__item">
+                <span class="before-after__label before-after__label--after">After image</span>
+                <div class="phone-frame phone-frame--small">
+                  <img src="images/feedback-after.png" alt="Gratification text and feedback" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION: Final Design -->
+  <!-- ============================================================ -->
+  <section class="section section--alt" id="final-design">
+    <div class="section__inner">
+      <div class="section__header reveal reveal--fade-up">
+        <p class="section__label">THE FINAL DESIGN</p>
+        <h2 class="section__title">All changes working together as a system</h2>
+        <p class="section__subtitle">No change was made in isolation. Every refinement complements the other &mdash; bigger tiles need a repositioned rack, circular power-ups need neutral tones, feedback needs space on the board.</p>
+      </div>
+
+      <div class="final-design-showcase reveal reveal--fade-up">
+        <div class="final-design__before">
+          <span class="final-design__tag">Before image</span>
+          <div class="phone-frame phone-frame--large">
+            <img src="images/final-before.png" alt="Original puzzle screen" loading="lazy">
+          </div>
+        </div>
+        <div class="final-design__after">
+          <span class="final-design__tag final-design__tag--after">After image</span>
+          <div class="phone-frame phone-frame--large phone-frame--hero">
+            <img src="images/final-after.png" alt="Redesigned puzzle screen" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION: A/B Testing & Impact -->
+  <!-- ============================================================ -->
+  <section class="section section--alt" id="impact">
+    <div class="section__inner">
+      <div class="section__header reveal reveal--fade-up">
+        <p class="section__label">A/B testing &amp; Impact</p>
+        <h2 class="section__title">The numbers that validate the design decisions</h2>
+      </div>
+
+      <!-- Experimentation Framework -->
+      <div class="ab-testing reveal reveal--fade-up">
+        <h3 class="impact-subheading">Experimentation Framework</h3>
+        <div class="ab-grid">
+          <div class="ab-card">
+            <h4>Phased Rollout</h4>
+            <p>Each change was shipped individually, one element at a time, so the data analyst could clearly attribute metric movements to specific changes.</p>
+          </div>
+          <div class="ab-card">
+            <h4>A/B Split</h4>
+            <p>Each change was tested with a control vs. variant split across a statistically significant user base before full rollout.</p>
+          </div>
+          <div class="ab-card">
+            <h4>Data &mdash; Informed iteration</h4>
+            <p>Insights from performance data and player feedback were continuously analysed not just to validate decisions but also to guide further refinements and optimizations.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Measured Impact -->
+      <div class="metrics-section reveal reveal--fade-up">
+        <h3 class="impact-subheading">Measured Impact</h3>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-card__value">4%</div>
+            <div class="metric-card__label">Session Length Increase</div>
+            <div class="metric-card__context">Shows players are more engaged, less frustrated, &amp; finding more value per visit, directly translating to higher ad revenue &amp; improved retention.</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__value">7.5%</div>
+            <div class="metric-card__label">Ad View Uplift</div>
+            <div class="metric-card__context">More time in-game = more natural, non-intrusive ad touchpoints.</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__value">5.6%</div>
+            <div class="metric-card__label">Power up Usage Increase</div>
+            <div class="metric-card__context">Better visibility &amp; positioning drove higher power up engagement.</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-card__value">1-2</div>
+            <div class="metric-card__label">Tile Size Complains</div>
+            <div class="metric-card__context">From 8-9 daily support tickets to 1-2 after the redesign.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SECTION: Reflection -->
+  <!-- ============================================================ -->
+  <section class="section section--alt" id="learnings">
+    <div class="section__inner">
+      <div class="section__header reveal reveal--fade-up">
+        <p class="section__label">REFLECTION</p>
+        <h2 class="section__title">Learnings from the Project</h2>
+      </div>
+
+      <div class="learnings-grid">
+        <div class="learning-card reveal reveal--fade-up">
+          <div class="learning-card__number">01</div>
+          <h3 class="learning-card__title">Small, principled changes compound</h3>
+          <p class="learning-card__text">No single change drives impact in isolation. Consistent improvements across usability, clarity, and feedback can collectively lead to meaningful gains in engagement. Well-designed systems outperform isolated optimizations.</p>
+        </div>
+
+        <div class="learning-card reveal reveal--fade-up reveal--delay-1">
+          <div class="learning-card__number">02</div>
+          <h3 class="learning-card__title">Ship one change at a time</h3>
+          <p class="learning-card__text">Shipping changes individually allowed us to measure the impact of each change in isolation. Measuring one variable at a time ensures reliable insights and reduces ambiguity in decision-making.</p>
+        </div>
+
+        <div class="learning-card reveal reveal--fade-up reveal--delay-2">
+          <div class="learning-card__number">03</div>
+          <h3 class="learning-card__title">Sometimes constraints drive better solutions</h3>
+          <p class="learning-card__text">Design limitations often lead to more thoughtful and efficient solutions. Working within constraints encourages prioritization and leads to outcomes that are both practical and scalable.</p>
+        </div>
+
+        <div class="learning-card reveal reveal--fade-up reveal--delay-3">
+          <div class="learning-card__number">04</div>
+          <h3 class="learning-card__title">Validate assumptions with data</h3>
+          <p class="learning-card__text">Intuitive design decisions don&rsquo;t always translate to better outcomes. Continuous testing and validation are critical to ensure that solutions align with actual user behaviour.</p>
+        </div>
+      </div>
+
+      <div class="learnings-quote reveal reveal--fade-up">
+        <p>&ldquo;In casual gaming, the puzzle screen IS the product. Every pixel matters &mdash; not for aesthetics, but for how effortlessly a player can understand &amp; engage with the game.&rdquo;</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================================ -->
+  <footer class="footer">
+    <p class="footer__title">Thanks for reading!</p>
+    <div class="footer__ctas">
+      <a href="../../index.html" class="footer__cta" id="back-to-works-footer">
+        <svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 2L2 10L10 18" stroke="#242424" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="2.5" y1="10" x2="24" y2="10" stroke="#242424" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Back to works</span>
+      </a>
+      <a href="../Case_study01/index.html" class="footer__cta">
+        <span>Next project</span>
+        <svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 2L24 10L16 18" stroke="#242424" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="23.5" y1="10" x2="2" y2="10" stroke="#242424" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
