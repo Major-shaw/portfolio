@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout Options — Insights & Next Steps</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #4a90d9;
+      --blue-dark: #2563a8;
+      --blue-light: #d4e6f9;
+      --bg: #f5f6f8;
+      --white: #ffffff;
+      --text: #1e1e1e;
+      --body: #555555;
+      --label: #6b6b6b;
+      --border: #e1e8f0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #e8eaed;
+      color: var(--text);
+      padding: 3rem 2rem;
+    }
+
+    /* ─── SWITCHER NAV ─────────────────────────── */
+    .switcher {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .switcher__btn {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 0.5rem 1.5rem;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      color: var(--label);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .switcher__btn.active,
+    .switcher__btn:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+
+    /* ─── SHARED PANEL WRAPPER ─────────────────── */
+    .panel {
+      display: none;
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--bg);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .panel.active { display: block; }
+
+    .panel__label {
+      background: var(--text);
+      color: #fff;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.5rem;
+    }
+
+    .panel__inner {
+      padding: 4rem 4.5rem;
+    }
+
+    /* ─── SHARED TYPOGRAPHY ────────────────────── */
+    .overline {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+      margin-bottom: 0.625rem;
+    }
+
+    .context-line {
+      font-size: 0.9375rem;
+      color: var(--body);
+      line-height: 1.6;
+      margin-bottom: 3rem;
+    }
+
+    /* ─── MOCK PLACEHOLDER ─────────────────────── */
+    .mock {
+      background: var(--border);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--label);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .mock--portrait {
+      aspect-ratio: 9/16;
+      max-width: 160px;
+    }
+
+    .mock--portrait-sm {
+      aspect-ratio: 9/16;
+      max-width: 130px;
+    }
+
+
+    /* ============================================================
+       OPTION A — Horizontal Rule Layout
+    ============================================================ */
+
+    /* Insight columns with vertical divider */
+    .a-insights {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+      align-items: start;
+    }
+
+    .a-divider {
+      background: var(--border);
+      height: 100%;
+      min-height: 80px;
+      align-self: stretch;
+    }
+
+    .a-insight__tag {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .a-insight__text {
+      font-size: 0.9375rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* Horizontal rule synthesis */
+    .a-synthesis {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .a-synthesis p {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--blue-dark);
+      line-height: 1.6;
+    }
+
+    /* Opportunity — left border blockquote style */
+    .a-opportunity {
+      border-left: 3px solid var(--blue);
+      padding-left: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .a-opportunity p {
+      font-size: 0.9375rem;
+      color: var(--body);
+      line-height: 1.75;
+    }
+
+    .a-opportunity p + p {
+      margin-top: 0.75rem;
+    }
+
+    /* Interventions as horizontal rows */
+    .a-sub-heading {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--label);
+      margin-bottom: 1.5rem;
+    }
+
+    .a-intervention {
+      display: grid;
+      grid-template-columns: 1fr 160px;
+      gap: 2rem;
+      align-items: start;
+      padding: 1.75rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .a-intervention:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .a-intervention__num {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.375rem;
+    }
+
+    .a-intervention__title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .a-intervention__desc {
+      font-size: 0.875rem;
+      color: var(--body);
+      line-height: 1.7;
+      margin-bottom: 0.625rem;
+    }
+
+    .a-intervention__caption {
+      font-size: 0.75rem;
+      font-style: italic;
+      color: var(--label);
+      line-height: 1.5;
+    }
+
+
+    /* ============================================================
+       OPTION B — Inline Pull Stat Style
+    ============================================================ */
+
+    .b-insights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .b-insight__lead {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .b-insight__sub {
+      font-size: 0.875rem;
+      color: var(--body);
+      line-height: 1.65;
+    }
+
+    .b-synthesis {
+      background: var(--blue-light);
+      border-radius: 10px;
+      padding: 1.125rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .b-synthesis p {
+      font-size: 0.9375rem;
+      font-style: italic;
+      color: var(--blue-dark);
+      line-height: 1.6;
+    }
+
+    .b-opportunity {
+      margin-bottom: 3rem;
+    }
+
+    .b-sub-heading {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--label);
+      margin-bottom: 0.75rem;
+    }
+
+    .b-opportunity p {
+      font-size: 0.9375rem;
+      color: var(--body);
+      line-height: 1.75;
+    }
+
+    /* Interventions — 2-col, image on top, text below */
+    .b-interventions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .b-intervention {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.875rem;
+    }
+
+    .b-intervention__mock {
+      width: 100%;
+      aspect-ratio: 9/16;
+      max-height: 280px;
+      background: var(--border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.625rem;
+      font-weight: 600;
+      color: var(--label);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .b-intervention__title {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .b-intervention__desc {
+      font-size: 0.8125rem;
+      color: var(--body);
+      line-height: 1.7;
+    }
+
+    .b-intervention__caption {
+      font-size: 0.75rem;
+      font-style: italic;
+      color: var(--label);
+    }
+
+
+    /* ============================================================
+       OPTION C — Single Narrow Column (Editorial)
+    ============================================================ */
+
+    .c-inner {
+      max-width: 580px;
+    }
+
+    .c-insight-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .c-insight__label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      display: block;
+      margin-bottom: 0.375rem;
+    }
+
+    .c-insight__text {
+      font-size: 0.875rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .c-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.75rem 0;
+    }
+
+    .c-synthesis p {
+      font-size: 1.0625rem;
+      font-style: italic;
+      color: var(--blue-dark);
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+
+    .c-opportunity p {
+      font-size: 0.9375rem;
+      color: var(--body);
+      line-height: 1.8;
+    }
+
+    .c-sub-heading {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--label);
+      margin: 2.5rem 0 1.5rem;
+    }
+
+    /* Interventions — full width strips, image right */
+    .c-intervention {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2.5rem;
+      align-items: start;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .c-intervention:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .c-intervention__num {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+
+    .c-intervention__title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .c-intervention__desc {
+      font-size: 0.875rem;
+      color: var(--body);
+      line-height: 1.7;
+    }
+
+    .c-intervention__caption {
+      font-size: 0.75rem;
+      font-style: italic;
+      color: var(--label);
+      margin-top: 0.75rem;
+    }
+
+    .c-intervention__mock {
+      width: 120px;
+      aspect-ratio: 9/16;
+      background: var(--border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.5625rem;
+      font-weight: 600;
+      color: var(--label);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- SWITCHER -->
+  <div class="switcher">
+    <button class="switcher__btn active" onclick="show('a', this)">Option A — Horizontal Rule</button>
+    <button class="switcher__btn" onclick="show('b', this)">Option B — Pull Stat</button>
+    <button class="switcher__btn" onclick="show('c', this)">Option C — Editorial Column</button>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       OPTION A — Horizontal Rule Layout
+  ════════════════════════════════════════════════════ -->
+  <div class="panel active" id="panel-a">
+    <div class="panel__label">Option A — Horizontal Rule Layout · No cards, structured with rules and spacing</div>
+    <div class="panel__inner">
+
+      <p class="overline">09 · Iteration</p>
+      <h2 class="section-title">Insights &amp; Next Steps</h2>
+      <p class="context-line">After launch, data surfaced two clear signals that shaped the next iteration.</p>
+
+      <!-- Insights: two columns + vertical rule -->
+      <div class="a-insights">
+        <div>
+          <span class="a-insight__tag">Highest Intent</span>
+          <p class="a-insight__text">Taps on the Quest event icon were the highest among all event icons on the Home Screen.</p>
+        </div>
+        <div class="a-divider"></div>
+        <div>
+          <span class="a-insight__tag">Highest Claim Rate</span>
+          <p class="a-insight__text">Reward claim rate for completed quests was the highest compared to all other in-game events.</p>
+        </div>
+      </div>
+
+      <!-- Synthesis -->
+      <div class="a-synthesis">
+        <p>Players who discovered the feature engaged deeply. The challenge now shifted from retention to discoverability.</p>
+      </div>
+
+      <!-- Opportunity -->
+      <div class="a-opportunity">
+        <p>Despite strong intent signals, a significant portion of players never reached the feature — because they never encountered it.</p>
+        <p>Players spend the majority of session time on the game board, completing quests passively and without awareness. The value was invisible to them.</p>
+      </div>
+
+      <!-- Interventions -->
+      <p class="a-sub-heading">Design Interventions</p>
+
+      <div class="a-intervention">
+        <div>
+          <span class="a-intervention__num">01</span>
+          <h4 class="a-intervention__title">Intro Overlay</h4>
+          <p class="a-intervention__desc">A lightweight overlay on the game board, surfaced once during the player's first session of the day. Increases awareness without interrupting the play loop.</p>
+          <p class="a-intervention__caption">Awareness without interruption. Surfaces once per session.</p>
+        </div>
+        <div class="mock mock--portrait">Mockup</div>
+      </div>
+
+      <div class="a-intervention">
+        <div>
+          <span class="a-intervention__num">02</span>
+          <h4 class="a-intervention__title">Quest Icon on Game Board</h4>
+          <p class="a-intervention__desc">A persistent entry point on the game board. Reduces dependency on Home Screen navigation and meets players where they spend the most time.</p>
+          <p class="a-intervention__caption">Persistent entry point — meets players where they actually play.</p>
+        </div>
+        <div class="mock mock--portrait">Mockup</div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       OPTION B — Inline Pull Stat Style
+  ════════════════════════════════════════════════════ -->
+  <div class="panel" id="panel-b">
+    <div class="panel__label">Option B — Pull Stat Style · Bold typographic leads, no borders</div>
+    <div class="panel__inner">
+
+      <p class="overline">09 · Iteration</p>
+      <h2 class="section-title">Insights &amp; Next Steps</h2>
+      <p class="context-line">After launch, data surfaced two clear signals that shaped the next iteration.</p>
+
+      <!-- Insights: oversized bold lead -->
+      <div class="b-insights">
+        <div>
+          <p class="b-insight__lead">Highest intent<br>among all event icons.</p>
+          <p class="b-insight__sub">Quest icon tap rate was the highest on the Home Screen — players who saw it, acted on it.</p>
+        </div>
+        <div>
+          <p class="b-insight__lead">Highest claim rate<br>across all events.</p>
+          <p class="b-insight__sub">Reward completion was unmatched — the loop worked once players were inside it.</p>
+        </div>
+      </div>
+
+      <!-- Synthesis: tinted pill -->
+      <div class="b-synthesis">
+        <p>Players who discovered the feature engaged deeply. The challenge now shifted from retention to discoverability.</p>
+      </div>
+
+      <!-- Opportunity -->
+      <div class="b-opportunity">
+        <p class="b-sub-heading">The Opportunity</p>
+        <p>Despite strong intent signals, a large portion of players never encountered the feature. Most session time is spent on the game board — where the Quest entry point didn't exist.</p>
+      </div>
+
+      <!-- Interventions: image-led, text below -->
+      <p class="b-sub-heading">Design Interventions</p>
+      <div class="b-interventions">
+        <div class="b-intervention">
+          <div class="b-intervention__mock">Intro Overlay</div>
+          <p class="b-intervention__title">Intro Overlay</p>
+          <p class="b-intervention__desc">Surfaced once during the player's first session of the day. Awareness without interruption.</p>
+          <p class="b-intervention__caption">Awareness without interruption. Surfaces once per session.</p>
+        </div>
+        <div class="b-intervention">
+          <div class="b-intervention__mock">Quest Icon</div>
+          <p class="b-intervention__title">Quest Icon on Game Board</p>
+          <p class="b-intervention__desc">A persistent icon that reduces Home Screen dependency and meets players in context.</p>
+          <p class="b-intervention__caption">Persistent entry point — meets players where they actually play.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       OPTION C — Single Narrow Column (Editorial)
+  ════════════════════════════════════════════════════ -->
+  <div class="panel" id="panel-c">
+    <div class="panel__label">Option C — Editorial Column · Narrow, article-style, image floats right</div>
+    <div class="panel__inner">
+
+      <div class="c-inner">
+
+        <p class="overline">09 · Iteration</p>
+        <h2 class="section-title">Insights &amp; Next Steps</h2>
+        <p class="context-line">After launch, data surfaced two clear signals that shaped the next iteration.</p>
+
+        <!-- Insights -->
+        <div class="c-insight-pair">
+          <div>
+            <span class="c-insight__label">Highest Intent</span>
+            <p class="c-insight__text">Quest icon taps were the highest among all event icons on the Home Screen.</p>
+          </div>
+          <div>
+            <span class="c-insight__label">Highest Claim Rate</span>
+            <p class="c-insight__text">Reward claim rate for completed quests was the highest across all events.</p>
+          </div>
+        </div>
+
+        <hr class="c-divider">
+
+        <!-- Synthesis -->
+        <div class="c-synthesis">
+          <p>Players who discovered the feature engaged deeply. The challenge now shifted from retention to discoverability.</p>
+        </div>
+
+        <!-- Opportunity -->
+        <div class="c-opportunity">
+          <p>Despite strong intent signals, a significant portion of players never reached the feature — because they never encountered it. Most session time is spent on the game board, where the Quest surface was absent.</p>
+        </div>
+
+        <!-- Interventions -->
+        <p class="c-sub-heading">Design Interventions</p>
+
+        <div class="c-intervention">
+          <div>
+            <span class="c-intervention__num">01</span>
+            <h4 class="c-intervention__title">Intro Overlay</h4>
+            <p class="c-intervention__desc">A lightweight overlay on the game board, surfaced once during the player's first session of the day. Increases awareness without interrupting the play loop.</p>
+            <p class="c-intervention__caption">Awareness without interruption. Surfaces once per session.</p>
+          </div>
+          <div class="c-intervention__mock">Mockup</div>
+        </div>
+
+        <div class="c-intervention">
+          <div>
+            <span class="c-intervention__num">02</span>
+            <h4 class="c-intervention__title">Quest Icon on Game Board</h4>
+            <p class="c-intervention__desc">A persistent entry point on the game board. Reduces dependency on Home Screen navigation and meets players where they spend the most time.</p>
+            <p class="c-intervention__caption">Persistent entry point — meets players where they actually play.</p>
+          </div>
+          <div class="c-intervention__mock">Mockup</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    function show(id, btn) {
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.switcher__btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('panel-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
