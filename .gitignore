@@ -1,9 +1,6 @@
 # Old versions / drafts
 drafts/
 
-# PDFs
-*.pdf
-
 # macOS
 .DS_Store
 Thumbs.db
